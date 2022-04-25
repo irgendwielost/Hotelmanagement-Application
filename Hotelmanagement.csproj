@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\img\basedata.png" />
+      <Resource Include="Assets\img\basedata.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Assets\img\booking.png" />
+      <Resource Include="Assets\img\booking.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Assets\img\customer.png" />
+      <Resource Include="Assets\img\customer.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Assets\img\restaurant.png" />
+      <Resource Include="Assets\img\restaurant.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Assets\img\spa.png" />
+      <Resource Include="Assets\img\spa.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MaterialDesignExtensions" Version="4.0.0-a02" />
+      <PackageReference Include="MaterialDesignThemes" Version="4.5.0-ci153" />
+      <PackageReference Include="MySql.Data" Version="8.0.27" />
+    </ItemGroup>
+
+</Project>

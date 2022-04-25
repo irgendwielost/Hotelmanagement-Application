@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Hotelmanagement.FrontEnd.Viewmodels.DepartmentTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
+             mc:Ignorable="d"
+             Background="white"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <DataGrid  Grid.Row="0" Grid.Column="0" x:Name="DataGrid" ItemsSource="{Binding}" Margin="50,10,30,10" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+
+        <TextBox Grid.Row="2" x:Name="DepartmentName" Margin="72,93,190,70"/>
+        
+
+        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="Department" Margin="240,15,30,141"/>
+        
+        <Button Grid.Row="2" Grid.Column="1" Margin="15,100,262,52">Löschen</Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="278,100,19,52">Speichern</Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="278,100,19,52">Bearbeiten</Button>
+
+    </Grid>
+</UserControl>

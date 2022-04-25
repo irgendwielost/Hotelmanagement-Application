@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Hotelmanagement.FrontEnd.Viewmodels.BaseDataTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
+             mc:Ignorable="d"
+             Background="white"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid>
+        <Grid>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="700"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Column="0" Grid.Row="2" Click="Restaurant">Restaurant</Button>
+            <Button Grid.Column="0" Grid.Row="3" Click="Hotel">Hotel</Button>
+            <Button Grid.Column="0" Grid.Row="4" Click="Admin">Admin</Button>
+            <Button Grid.Column="0" Grid.Row="5" Click="Service">Service</Button>
+            <Button Grid.Column="0" Grid.Row="6" Click="Discount">Rabatte</Button>
+            <Button Grid.Column="0" Grid.Row="7" Click="Spa">Spa</Button>
+            
+            <ContentControl x:Name="ContentControl" Grid.Column="1" Height="600" Width="700"/>
+        </Grid>
+    </Grid>
+</UserControl>
