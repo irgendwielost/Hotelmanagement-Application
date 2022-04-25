@@ -4,7 +4,7 @@
     <projectFile>Hotelmanagement.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6afb42e2-55d4-4505-87a8-3dc22eedea43" name="Changes" comment="Added the MainWindow Design and some Database basics" />
+    <list default="true" id="6afb42e2-55d4-4505-87a8-3dc22eedea43" name="Changes" comment="Added the Main-Window design and some database basics" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +24,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c93bddb949d457b9ba86cb9a951685af87880/37/745b0030/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbb9b76d07e4477885c165cd6116d8cca23898/62/3e9c77b7/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Development/WPF/Hotelmanagement/.idea/.idea.Hotelmanagement/.idea/dataSources/282671cb-77f2-493b-a8fa-6a80938476f5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,7 +84,7 @@
       <workItem from="1650868394099" duration="2183000" />
       <workItem from="1650871166075" duration="11179000" />
       <workItem from="1650885629861" duration="2144000" />
-      <workItem from="1650892602519" duration="1100000" />
+      <workItem from="1650892602519" duration="1728000" />
     </task>
     <task id="LOCAL-00001" summary="Added the MainWindow Design and some Database basics">
       <created>1650892678105</created>
@@ -92,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650892678105</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added the Main-Window design and some database basics">
+      <created>1650893999981</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650893999981</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,7 +120,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -129,6 +137,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added the MainWindow Design and some Database basics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the MainWindow Design and some Database basics" />
+    <MESSAGE value="Added the Main-Window design and some database basics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the Main-Window design and some database basics" />
   </component>
 </project>
