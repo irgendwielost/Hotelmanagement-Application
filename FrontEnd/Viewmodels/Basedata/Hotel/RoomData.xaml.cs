@@ -1,9 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using Hotelmanagement.BackEnd.Models.Rooms;
 
 namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
 {
+   
     public partial class RoomData : UserControl
     {
         public RoomData()
@@ -25,16 +28,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
             {
                 e.Column.Header = "Größe";
             }
-
-            if (propertyDescriptor.DisplayName == "Standartpreis")
-            {
-                e.Cancel = true;
-            }
             if (propertyDescriptor.DisplayName == "Beschreibung")
-            {
-                e.Cancel = true;
-            }
-            if (propertyDescriptor.DisplayName == "ID")
             {
                 e.Cancel = true;
             }
@@ -47,6 +41,85 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
             {
                 e.Cancel = true;
             }
+        }
+
+        //On Selected Datagrid Row
+        private void DataGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Selected Item
+            object item = ListView.SelectedItem; 
+            
+            //Selected Item | id
+            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | name
+            var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | size
+            var size = (ListView.SelectedCells[2].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | amount
+            var amount = (ListView.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | extra bed capacity
+            var extraBedCapacity = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | extra bed price
+            var extraBedPrice = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | room sitatuion
+            var situation = (ListView.SelectedCells[5].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            
+            if (id != null)
+            {
+                MessageBox.Show(id.ToString());
+                GetDescription(Int32.Parse(id));
+            }
+        }
+        
+        private void AddRoom(object sender, RoutedEventArgs e)
+        {
+            //Selected Item
+            object item = ListView.SelectedItem;
+            
+            //Selected Item | id
+            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+            //Selected Item | name
+            var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | size
+            var size = (ListView.SelectedCells[2].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | amount
+            var price = (ListView.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | amount
+            var amount = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | extra bed capacity
+            var extraBedCapacity = (ListView.SelectedCells[5].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | extra bed price
+            var extraBedPrice = (ListView.SelectedCells[6].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Selected Item | room sitatuion
+            var situation = (ListView.SelectedCells[7].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            var description = DescriptionBox.Text;
+            
+            
+            RoomsDB.CreateRoom(new(4, 11.ToString(), 20.ToString(), 10, 3, 123.ToString(), 
+                12, 43, 1.ToString(), false, new DateTime(2022-04-08)));
+            
+            //RoomsDB.CreateRoom(new Rooms(Int32.Parse(id), name, size, Double.Parse(price), 
+            //   Int32.Parse(amount), description, Int32.Parse(extraBedCapacity), 
+            //   Double.Parse(extraBedPrice), situation, false, DateTime.Now));
+        }
+        private void GetDescription(int id)
+        {
+            Rooms room = RoomsDB.GetRoomById(id);
+            DescriptionBox.Text = room.Description;
         }
     }
 }

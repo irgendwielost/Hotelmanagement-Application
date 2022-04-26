@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace Hotelmanagement.BackEnd.Models.Rooms
@@ -35,7 +36,7 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
             return null;
         }
 
-        public static void GetDescriptionRoom(int id)
+        public static Rooms GetRoomById(int id)
         {
             using var db = new Database.Database();
             
@@ -51,14 +52,26 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
             
             try
             {
+                var cmd = new MySqlCommand($"SELECT * FROM `zimmer` WHERE ID={id}", db.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if(reader.Read())
+                {
+                    return new Rooms(id, reader.GetString(1), reader.GetString(2), 
+                        reader.GetDouble(3), reader.GetInt32(4), reader.GetString(5),
+                        reader.GetInt32(6), reader.GetDouble(7),
+                        reader.GetString(8), reader.GetBoolean(9), reader.GetDateTime(10));
+                }
                 
-                var cmd = new MySqlCommand("select Beschreibung from `zimmer`", db.connection);
-                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Es ist ein Fehler aufgetreten");
+                return null;
             }
+
+            return null;
         }
         public static void CreateRoom(Rooms room)
         {
@@ -75,12 +88,17 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
 
             try
             {
-                //Insert into method
+                var cmd = new MySqlCommand($"INSERT INTO `zimmer` (Bezeichnung, Groesse, Standartpreis, " +
+                                           $"Anzahl, Beschreibung, Zustellbettkapazität, Zustellbettpreis, " +
+                                           $"Lage, Entfernt) VALUES ({room.Designation}, {room.Size}, {room.BasePrice}, " +
+                                           $"{room.Amount}, {room.Description}, {room.ExtraBedCapacity}, " +
+                                           $"{room.ExtraBedPrice}, {room.Situation}, false)", db.connection);
+                cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e);
-                throw;
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Es ist ein Fehler aufgetreten");
             }
         }
     }
