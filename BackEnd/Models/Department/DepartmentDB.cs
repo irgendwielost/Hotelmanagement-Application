@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.Common;
 using MySql.Data.MySqlClient;
 
-namespace Hotelmanagement.BackEnd.ViewModels.Department
+namespace Hotelmanagement.BackEnd.Models.Department
 {
     public class DepartmentDB
     {

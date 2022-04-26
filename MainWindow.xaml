@@ -36,7 +36,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <!-- *****Buttons***** -->
             <Grid>
                 <Grid.Resources>
@@ -44,39 +44,50 @@
                            BasedOn="{StaticResource MaterialDesignFlatButton}">
                         <Setter Property="HorizontalAlignment" Value="Center"/>
                         <Setter Property="VerticalAlignment" Value="Top"/>
+                        <Setter Property="FontSize" Value="20"></Setter>
                     </Style>
                 </Grid.Resources>
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
-                <StackPanel Orientation="Horizontal">
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,3">
                     <!-- Main -->
-                    <Button Click="Switch_Main" Content="Main"/>
+                    <Button Click="Switch_Main" Content="Main" Height="34"/>
                     <!-- Booking -->
                     <Button Click="Switch_Booking" Content="Buchung"/>
                     <!-- Customer -->
                     <Button Click="Switch_Customer" Content="Kunde"/>
+                    <!-- Restaurant -->
+                    <Button Click="Switch_Restaurant" Content="Restaurant"/>
                     <!-- Spa -->
                     <Button Click="Switch_Spa" Content="Spa"/>
                     <!-- Basedata -->
                     <Button Click="Switch_BaseData" Content="Stammdaten"/>
                 </StackPanel>
-                <StackPanel>
+                <StackPanel Grid.Row="1">
                     <!-- Tabcontrol -->
-                    <TabControl Style="{StaticResource MaterialDesignTabControl}" 
-                                HorizontalContentAlignment="Left">
-                            <TabItem Content=""></TabItem>
-                    </TabControl>
+                    <materialDesign:Card>
+                        <TabControl x:Name="TabControl" Style="{StaticResource MaterialDesignTabControl}" 
+                                    HorizontalContentAlignment="Left" 
+                                    materialDesign:ColorZoneAssist.Mode="PrimaryDark">
+                            <TabItem Width="80" Height="20" VerticalAlignment="Center"/>
+                            <TabItem Width="95" Height="20" VerticalAlignment="Center"/>
+                            <TabItem Width="100" Height="20" VerticalAlignment="Center"/>
+                            <TabItem Width="105" Height="20" VerticalAlignment="Center"/>
+                            <TabItem Width="80" Height="20" VerticalAlignment="Center"/>
+                            <TabItem Width="145" Height="20" VerticalAlignment="Center"/>
+                        </TabControl>
+                    </materialDesign:Card>
                 </StackPanel>
             </Grid>
         </Grid>
 
         <!-- Content Control Container -->
-        <Grid x:Name="ContentControlArea" Background="white" Margin="0,50,-2,0" Grid.RowSpan="2">
-            <ContentControl x:Name="ContentControl"/>
+        <Grid x:Name="ContentControlArea" Background="white" Margin="0,74,-2,0" Grid.RowSpan="2">
+            <ContentControl x:Name="ContentControl" Width="1000" Height="545"/>
             <Grid Width="1000" Height="600" x:Name="Maincontrol">
                 <!-- Row-Definitons -->
                 <Grid.RowDefinitions>
@@ -110,13 +121,13 @@
                     </Grid.RowDefinitions>
 
                     <!-- Top Buttons -->
-                    
-                    
+
+
                     <!-- Restaurant -->
                     <Button Grid.Row="0" Grid.Column="1" Click="Switch_Restaurant"
                             Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
                             ToolTip="MaterialDesignFloatingActionDarkButton">
-                            <materialDesign:PackIcon Kind="SilverwareForkKnife"/>
+                        <materialDesign:PackIcon Kind="SilverwareForkKnife"/>
                     </Button>
                     <TextBlock Grid.Row="0" Grid.Column="1" Margin="215,50,65,38">Restaurant</TextBlock>
 
@@ -127,7 +138,7 @@
                         <materialDesign:PackIcon Kind="AccountGroup"/>
                     </Button>
                     <TextBlock Grid.Row="0" Grid.Column="3" Margin="75,50,205,38">Kunde</TextBlock>
-                    
+
                     <!-- Bottom Buttons -->
                     <!-- Spa -->
                     <Button Grid.Row="1" Grid.Column="1" Click="Switch_Spa"
@@ -136,16 +147,16 @@
                         <materialDesign:PackIcon Kind="Spa"/>
                     </Button>
                     <TextBlock Grid.Row="1" Grid.Column="1" Margin="215,50,65,38">Spa</TextBlock>
-                    
-                    
+
+
                     <!-- Booking -->
                     <Button Grid.Row="1" Grid.Column="3" Click="Switch_Booking"
                             Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
                             ToolTip="MaterialDesignFloatingActionDarkButton">
-                            <materialDesign:PackIcon Kind="Book"/>
+                        <materialDesign:PackIcon Kind="Book"/>
                     </Button>
                     <TextBlock Grid.Row="1" Grid.Column="3" Margin="75,50,205,38">Buchung</TextBlock>
-                    
+
                     <!-- Middle Button -->
                     <!-- BaseData -->
                     <Button Click="Switch_BaseData" Margin="0,60,0,65" 
@@ -154,7 +165,7 @@
                             ToolTip="MaterialDesignFloatingActionDarkButton">
                         <materialDesign:PackIcon Kind="Database" />
                     </Button>
-               
+
                     <TextBlock  Grid.Column="2" Margin="15,47,9,45" Grid.Row="1">Stammdaten</TextBlock>
                 </Grid>
             </Grid>

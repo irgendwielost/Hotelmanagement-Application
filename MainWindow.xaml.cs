@@ -44,6 +44,7 @@ namespace Hotelmanagement
         {
             ContentControl.Content = _transparent;
             ShowMain();
+            Change_Tab(0);
         }
         
         //Employee
@@ -58,6 +59,7 @@ namespace Hotelmanagement
         {
             ContentControl.Content = _restaurantTab;
             HideMain();
+            Change_Tab(3);
         }
         
         //Customer
@@ -65,6 +67,7 @@ namespace Hotelmanagement
         {
             ContentControl.Content = _customerTab;
             HideMain();
+            Change_Tab(2);
         }
         
         //Spa
@@ -72,12 +75,14 @@ namespace Hotelmanagement
         {
             ContentControl.Content = _spaTab;
             HideMain();
+            Change_Tab(4);
         }
         //BaseData
         private void Switch_BaseData(object sender, RoutedEventArgs e)
         {
             ContentControl.Content = _baseDataTab;
             HideMain();
+            Change_Tab(5);
         }
         
         //Booking
@@ -85,6 +90,7 @@ namespace Hotelmanagement
         {
             ContentControl.Content = _bookingTab;
             HideMain();
+            Change_Tab(1);
         }
 
         private void HideMain()
@@ -95,6 +101,11 @@ namespace Hotelmanagement
         private void ShowMain()
         {
             Maincontrol.Visibility = Visibility.Visible;
+        }
+        
+        private void Change_Tab(int tabIndex)
+        {
+            TabControl.SelectedIndex = tabIndex; 
         }
     }
 }

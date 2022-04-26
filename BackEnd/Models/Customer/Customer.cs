@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hotelmanagement.BackEnd.ViewModels.Customer
+namespace Hotelmanagement.BackEnd.Models.Customer
 {
     public class Customer
     {

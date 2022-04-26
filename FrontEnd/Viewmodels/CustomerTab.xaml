@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Background="white"
-             d:DesignHeight="600" d:DesignWidth="1000">
+             d:DesignHeight="545" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -20,142 +21,107 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <!-- Style defintion for textboxes -->
+        <Grid.Resources>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MaterialDesignLabel}">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+        </Grid.Resources>
 
         <!-- Inputs -->
 
         <!-- Column 0 | Row 0  -->
         <!-- Name -->
-        <Label Grid.Column="0" Grid.Row="0" Margin="10,10,180,85">Name</Label>
-        <TextBox x:Name="Name" Grid.Column="0" Grid.Row="0" Margin="15,30,10,70">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
+        <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Margin="5, 7, 0, 0">Name</Label>
+        <TextBox x:Name="Name" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Margin="5, 25, 0, 0"/>
 
         <!-- Column 0 | Row 0  -->
         <!-- E-Mail -->
-        <Label Grid.Column="0" Grid.Row="0" Margin="10,65,145,30">E-Mail</Label>
-        <TextBox x:Name="Email" Grid.Column="0" Grid.Row="0" Margin="15,85,10,15">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
+        <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Margin="5, 0, 0, 50">E-Mail</Label>
+        <TextBox x:Name="Email" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Margin="5, 0, 0, 25"/>
 
         <!-- Column 0 | Row 1  -->
         <!-- Birthday -->
-        <Label Grid.Column="0" Grid.Row="1" Margin="10,10,160,85">Geburtstag</Label>
-        <DatePicker x:Name="Birthday" Grid.Column="0" Grid.Row="1" Margin="15,30,10,65">
-            <DatePicker.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </DatePicker.Effect>
-        </DatePicker>
+        <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="5, 7, 0, 0">Geburtstag</Label>
+        <DatePicker x:Name="Birthday" Grid.Column="0" Grid.Row="1" Width="200" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5, 25, 0, 0"/>
 
         <!-- Telephone -->
-        <Label Grid.Column="0" Grid.Row="1" Margin="10,65,145,30">Telefonnummer</Label>
-        <TextBox x:Name="Tel" Grid.Column="0" Grid.Row="1" Margin="15,85,10,15">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
+        <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="5, 0, 0, 50">Telefonnummer</Label>
+        <TextBox x:Name="Tel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="5, 0, 0, 25"/>
 
         <!-- Column 1 | Grid 0  -->
         <!-- Street -->
-        <Label Grid.Column="0" Grid.Row="2" Margin="10,10,180,85">Straße</Label>
-        <TextBox x:Name="Street" Grid.Column="0" Grid.Row="2" Margin="15,30,10,70">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="0" Grid.Row="2"  VerticalAlignment="Top" Margin="5, 7, 0, 0">Straße</Label>
+        <TextBox x:Name="Street" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" Margin="5, 25, 0, 0"/>
+
         <!-- Place -->
-        <Label Grid.Column="0" Grid.Row="2" Margin="10,65,145,30">Wohnort</Label>
-        <TextBox x:Name="Place" Grid.Column="0" Grid.Row="2" Margin="15,85,115,15">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Margin="5, 0, 0, 50">Wohnort</Label>
+        <TextBox x:Name="Place" Grid.Column="0" Grid.Row="2" Width="135" VerticalAlignment="Bottom" Margin="5, 0, 0, 25"/>
+
         <!-- Postalcode -->
-        <Label Grid.Column="0" Grid.Row="2" Margin="140,65,15,30">Postleitzahl</Label>
-        <TextBox x:Name="PostalCode" Grid.Column="0" Grid.Row="2" Margin="145,85,10,15">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
-        
-        
+        <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Margin="137,0,0,50">Postleitzahl</Label>
+        <TextBox x:Name="PostalCode" Grid.Column="0" Grid.Row="2" 
+                 Width="60" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,45,25"/>
+
+
+
         <!-- Column 1 | Grid 0  -->
         <!-- Gender -->
-        <Label Grid.Column="1" Grid.Row="0" Margin="10,10,170,85">Geschlecht</Label>
-        <TextBox x:Name="Gender" Grid.Column="1" Grid.Row="0" Margin="15,30,10,70">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="0, 7, 0, 0">Geschlecht</Label>
+        <TextBox x:Name="Gender" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
+
         <!-- Travelreason -->
-        <Label Grid.Column="1" Grid.Row="0" Margin="10,65,145,30">Anreisegrund</Label>
-        <TextBox x:Name="Travelreason" Grid.Column="1" Grid.Row="0" Margin="15,85,10,15">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Anreisegrund</Label>
+        <TextBox x:Name="Travelreason" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" Margin="0, 0, 0, 25"/>
         <!-- Column 1 | Grid 1  -->
         <!-- Familystate -->
-        <Label Grid.Column="1" Grid.Row="1" Margin="10,65,145,30">Familienstand</Label>
-        <TextBox x:Name="Familystate" Grid.Column="1" Grid.Row="1" Margin="15,85,10,15">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Familienstand</Label>
+        <TextBox x:Name="Familystate" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0, 0, 0, 25"/>
+
         <!-- Lifestyle -->
-        <Label Grid.Column="1" Grid.Row="1" Margin="10,10,170,85">Lifestyle</Label>
-        <TextBox x:Name="Lifestyle" Grid.Column="1" Grid.Row="1" Margin="15,30,10,70">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0, 7, 0, 0">Lifestyle</Label>
+        <TextBox x:Name="Lifestyle" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
+
         <!-- Column 1 | Grid 2  -->
         <!-- Job -->
-        <Label Grid.Column="1" Grid.Row="2" Margin="10,10,170,85">Job</Label>
-        <TextBox x:Name="Job" Grid.Column="1" Grid.Row="2" Margin="15,30,10,70">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0, 7, 0, 0">Job</Label>
+        <TextBox x:Name="Job" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
+
         <!-- Company -->
-        <Label Grid.Column="1" Grid.Row="2" Margin="10,65,145,30">Unternehmen</Label>
-        <TextBox x:Name="Company" Grid.Column="1" Grid.Row="2" Margin="15,85,10,15">
-            <TextBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </TextBox.Effect>
-        </TextBox>
-        
+        <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Unternehmen</Label>
+        <TextBox x:Name="Company" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="0, 0, 0, 25"/>
+
         <!-- Column 1 | Grid 3  -->
         <!-- Salary -->
-        <Label Grid.Column="1" Grid.Row="3" Margin="10,10,170,85">Lohn</Label>
-        <ComboBox x:Name="Salary" Grid.Column="1" Grid.Row="3" Margin="15,30,10,70">
-            <ComboBox.Effect>
-                <DropShadowEffect Opacity="0.094" BlurRadius="100" ShadowDepth="7"/>
-            </ComboBox.Effect>
-        </ComboBox>
-        
+        <Label Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Margin="0, 7, 0, 0">Lohn</Label>
+        <ComboBox x:Name="Salary" Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Left"
+                  VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
+
         <!-- Businesstrip -->
-        <Label Grid.Column="1" Grid.Row="3" Margin="10,65,145,30">Geschäftsreise</Label>
+        <Label Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Geschäftsreise</Label>
         <CheckBox Grid.Column="1" Grid.Row="3" Margin="15,85,10,15"></CheckBox>
-        
+
         <!-- Column 0 | Grid 3  -->
-        <Button Grid.Column="0" Grid.Row="3" Margin="30,10,45,65">Speichern</Button>
-        <Button Grid.Column="0" Grid.Row="3" Margin="30,70,45,5">Löschen</Button>
-        <DataGrid x:Name="ListView" Grid.Row="0" Grid.Column="3"></DataGrid>
-        
+        <Button Grid.Column="0" Grid.Row="4" Margin="30,10,45,65">Speichern</Button>
+        <Button Grid.Column="0" Grid.Row="4" Margin="30,70,45,5">Löschen</Button>
+
+        <!-- Datagrid -->
+        <DataGrid 
+            x:Name="ListView"
+            CanUserAddRows="False"
+            SelectionUnit="Cell"
+            SelectionMode="Extended" 
+            AutoGeneratingColumn="OnAutoGeneratingColumn"
+            Grid.ColumnSpan="2" Margin="0,0,0,134" Grid.RowSpan="3" Grid.Column="2">
+        </DataGrid>
+
     </Grid>
 </UserControl>
