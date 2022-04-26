@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Hotelmanagement.BackEnd.Models.Customer
 {
@@ -17,6 +18,7 @@ namespace Hotelmanagement.BackEnd.Models.Customer
             Entfernt = entfernt;
             Entfernt_am = entfernt_am;
         }
+        
         
         public int ID { get; set; }
         public string Name { get; set; }

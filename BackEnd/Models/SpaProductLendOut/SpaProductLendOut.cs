@@ -1,14 +1,17 @@
-﻿namespace Hotelmanagement.BackEnd.Models.SpaProductLendOut;
+﻿
 
-public class SpaProductLendOut
+namespace Hotelmanagement.BackEnd.Models.SpaProductLendOut
 {
-    public SpaProductLendOut(int spa_product_id, int customer_id)
+    public class SpaProductLendOut
     {
-        SpaProductID = spa_product_id;
-        CustomerID = customer_id;
+        public SpaProductLendOut(int spa_product_id, int customer_id)
+        {
+            SpaProductID = spa_product_id;
+            CustomerID = customer_id;
+        }
+    
+        public int SpaProductID { get; set; }
+        public int CustomerID { get; set; }
+    
     }
-    
-    public int SpaProductID { get; set; }
-    public int CustomerID { get; set; }
-    
 }

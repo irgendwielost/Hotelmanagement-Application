@@ -4,6 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf" 
+             xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Background="white"
              d:DesignHeight="600" d:DesignWidth="1000">
@@ -15,25 +18,96 @@
                 <ColumnDefinition Width="700"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            
-            <Button Grid.Column="0" Grid.Row="2" Click="Restaurant">Restaurant</Button>
-            <Button Grid.Column="0" Grid.Row="3" Click="Hotel">Hotel</Button>
-            <Button Grid.Column="0" Grid.Row="4" Click="Admin">Admin</Button>
-            <Button Grid.Column="0" Grid.Row="5" Click="Service">Service</Button>
-            <Button Grid.Column="0" Grid.Row="6" Click="Discount">Rabatte</Button>
-            <Button Grid.Column="0" Grid.Row="7" Click="Spa">Spa</Button>
-            
+            <Grid Grid.Column="0">
+                <Grid.Resources>
+                    <!-- Expander style -->
+                    <Style TargetType="{x:Type Expander}" 
+                           BasedOn="{StaticResource MaterialDesignExpander}">
+                        <Setter Property="Background" Value="white"/>
+                    </Style>
+                    <!-- Button style inside of expander -->
+                    <Style TargetType="{x:Type Button}" 
+                           BasedOn="{StaticResource MaterialDesignFlatDarkButton}">
+                    </Style>
+                </Grid.Resources>
+                <StackPanel>
+                    <!-- Hotel -->
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Hotel">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <Button Click="Rooms">Räume</Button>
+                            <Button Click="Rooms">Aufenthaltsarten</Button>
+                            <Button Click="Rooms">Bezahlmethoden</Button>
+                        </StackPanel>
+                    </Expander>
+                    <!-- Restaurant -->
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Restaurant">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <Button Click="Testing">Tische</Button>
+                            <Button Click="Testing">Speisen</Button>
+                            <Button Click="Testing">Speisen-Kategorien</Button>
+                            <Button Click="Testing">Getränke</Button>
+                            <Button Click="Testing">Getränke-Kategorien</Button>
+                        </StackPanel>
+                    </Expander>
+                    <!-- Admin -->
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Administration">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <Button Click="Testing">Mitarbeiter</Button>
+                            <Button Click="Testing">Abteilungen</Button>
+                        </StackPanel>
+                    </Expander>
+                    <!-- Service -->
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Service">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <Button Click="Testing">Services</Button>
+                        </StackPanel>
+                    </Expander>
+                    <!-- Rabatte -->
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Rabatte">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <Button Click="Testing">Angebotsaktionen</Button>
+                            <Button Click="Testing">Kundenrabatte</Button>
+                        </StackPanel>
+                        
+                    </Expander>
+                    <!-- Spa -->
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Spa">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <Button Click="Testing">Produkte</Button>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </Grid>
             <ContentControl x:Name="ContentControl" Grid.Column="1" Height="600" Width="700"/>
         </Grid>
     </Grid>

@@ -25,6 +25,10 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
         {
             PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
             e.Column.Header = propertyDescriptor.DisplayName;
+            if (propertyDescriptor.DisplayName == "ID")
+            {
+                e.Column.Header = "Nice";
+            }
             if (propertyDescriptor.DisplayName == "Entfernt")
             {
                 e.Cancel = true;

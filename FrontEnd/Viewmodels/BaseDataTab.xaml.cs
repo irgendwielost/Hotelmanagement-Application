@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Hotelmanagement.BackEnd.Models.Rooms;
 using Hotelmanagement.FrontEnd.Viewmodels.Basedata;
+using Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel;
 
 namespace Hotelmanagement.FrontEnd.Viewmodels
 {
@@ -13,7 +15,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
     
         //Contents of the tab
         public RestaurantData _restaurantData = new RestaurantData();
-        public Hoteldata _hoteldata = new Hoteldata();
+        public RoomData _roomData = new RoomData();
         public ServiceData _serviceData = new ServiceData();
         public DiscountData _discountData = new DiscountData();
         public SpaData _spaData = new SpaData();
@@ -24,10 +26,10 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             ContentControl.Content = _restaurantData;
         }
     
-        //Switch to HotelData
-        private void Hotel(object sender, RoutedEventArgs e)
+        //Switch to Roomdata
+        private void Rooms(object sender, RoutedEventArgs e)
         {
-            ContentControl.Content = _hoteldata;
+            ContentControl.Content = _roomData;
         }
     
         //Switch to ServiceData
@@ -53,9 +55,9 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             ContentControl.Content = _admindata;
         }
 
-        private void HideStartUp()
+        private void Testing(object sender, RoutedEventArgs e)
         {
-        
+            MessageBox.Show("test");
         }
     }
 }

@@ -1,13 +1,16 @@
-﻿namespace Hotelmanagement.BackEnd.Models.RestaurantVisitDrinks;
+﻿
 
-public class RestaurantVisitDrinks
+namespace Hotelmanagement.BackEnd.Models.RestaurantVisitDrinks
 {
-    public RestaurantVisitDrinks(int restaurant_visit_id, int drinks_id)
+    public class RestaurantVisitDrinks
     {
-        RestaurantVisitID = restaurant_visit_id;
-        DrinksID = drinks_id;
-    }
+        public RestaurantVisitDrinks(int restaurant_visit_id, int drinks_id)
+        {
+            RestaurantVisitID = restaurant_visit_id;
+            DrinksID = drinks_id;
+        }
     
-    public int RestaurantVisitID { get; set; }
-    public int DrinksID { get; set; }
+        public int RestaurantVisitID { get; set; }
+        public int DrinksID { get; set; }
+    }
 }
