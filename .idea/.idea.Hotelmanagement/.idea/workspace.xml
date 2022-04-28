@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6afb42e2-55d4-4505-87a8-3dc22eedea43" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BackEnd/Models/Service/ServiceDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources/282671cb-77f2-493b-a8fa-6a80938476f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources/282671cb-77f2-493b-a8fa-6a80938476f5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Rooms/RoomsDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Rooms/RoomsDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hotelmanagement.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Hotelmanagement.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/BaseDataTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/BaseDataTab.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/BaseDataTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/BaseDataTab.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/ServiceData.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/ServiceData.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +30,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c93bddb949d457b9ba86cb9a951685af87880/37/745b0030/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbb9b76d07e4477885c165cd6116d8cca23898/62/3e9c77b7/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -40,12 +47,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3495212" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RunManager">
     <configuration name="Hotelmanagement" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -80,7 +94,7 @@
       <workItem from="1650885629861" duration="2144000" />
       <workItem from="1650892602519" duration="1728000" />
       <workItem from="1650975595995" duration="2174000" />
-      <workItem from="1651000755094" duration="299000" />
+      <workItem from="1651066422984" duration="1506000" />
     </task>
     <task id="LOCAL-00001" summary="Added the MainWindow Design and some Database basics">
       <created>1650892678105</created>
@@ -127,6 +141,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

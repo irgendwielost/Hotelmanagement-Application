@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using Hotelmanagement.BackEnd.Models.Rooms;
 using Hotelmanagement.FrontEnd.Viewmodels.Basedata;
 using Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel;
+using Hotelmanagement.FrontEnd.Viewmodels.Basedata.Service;
 
 namespace Hotelmanagement.FrontEnd.Viewmodels
 {

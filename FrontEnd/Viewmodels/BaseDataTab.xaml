@@ -40,7 +40,7 @@
                             TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
                             Margin="24,8,24,16">
                             <Button Click="Rooms">Räume</Button>
-                            <Button Click="Rooms">Aufenthaltsarten</Button>
+                            <Button Click="Service">Aufenthaltsarten</Button>
                             <Button Click="Rooms">Bezahlmethoden</Button>
                         </StackPanel>
                     </Expander>
@@ -79,7 +79,7 @@
                             Orientation="Vertical"
                             TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
                             Margin="24,8,24,16">
-                            <Button Click="Testing">Services</Button>
+                            <Button Click="Service">Services</Button>
                         </StackPanel>
                     </Expander>
                     <!-- Rabatte -->
