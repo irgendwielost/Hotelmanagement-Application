@@ -16,7 +16,7 @@
         <!-- Datagrid -->
         <DataGrid  Grid.Row="0"
                    x:Name="ListView"
-                   CanUserAddRows="False"
+                   CanUserAddRows="True"
                    AutoGeneratingColumn="OnAutoGeneratingColumn"
                    SelectionChanged="DataGrid_OnSelectionChanged">
         </DataGrid>

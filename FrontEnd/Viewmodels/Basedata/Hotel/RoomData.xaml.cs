@@ -108,13 +108,9 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
 
             var description = DescriptionBox.Text;
             
-            
-            RoomsDB.CreateRoom(new(4, 11.ToString(), 20.ToString(), 10, 3, 123.ToString(), 
-                12, 43, 1.ToString(), false, new DateTime(2022-04-08)));
-            
-            //RoomsDB.CreateRoom(new Rooms(Int32.Parse(id), name, size, Double.Parse(price), 
-            //   Int32.Parse(amount), description, Int32.Parse(extraBedCapacity), 
-            //   Double.Parse(extraBedPrice), situation, false, DateTime.Now));
+            RoomsDB.CreateRoom(new Rooms(Int32.Parse(id), name, size, Double.Parse(price), 
+                Int32.Parse(amount), description, Int32.Parse(extraBedCapacity), 
+            Double.Parse(extraBedPrice), situation, false, DateTime.Now));
         }
         private void GetDescription(int id)
         {

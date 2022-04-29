@@ -90,9 +90,9 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
             {
                 var cmd = new MySqlCommand($"INSERT INTO `zimmer` (Bezeichnung, Groesse, Standartpreis, " +
                                            $"Anzahl, Beschreibung, Zustellbettkapazität, Zustellbettpreis, " +
-                                           $"Lage, Entfernt) VALUES ({room.Designation}, {room.Size}, {room.BasePrice}, " +
-                                           $"{room.Amount}, {room.Description}, {room.ExtraBedCapacity}, " +
-                                           $"{room.ExtraBedPrice}, {room.Situation}, false)", db.connection);
+                                           $"Lage, Entfernt) VALUES ('{room.Designation}', '{room.Size}', {room.BasePrice}, " +
+                                           $"{room.Amount}, '{room.Description}', {room.ExtraBedCapacity}, " +
+                                           $"{room.ExtraBedPrice}, '{room.Situation}', false)", db.connection);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
