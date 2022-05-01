@@ -4,9 +4,176 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="545" d:DesignWidth="1000">
     <Grid>
-        <TextBlock>Booking</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top-Left | Select data -->
+        <Grid Row="0" Grid.Column="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Select Rooms from database -->
+            <ComboBox Grid.Row="0" Grid.Column="0" x:Name="RoomComboBox" 
+                      DisplayMemberPath="Bezeichnung" 
+                      SelectedValuePath="ID"
+                      SelectionChanged="RoomComboBox_OnSelectionChanged"
+                      IsEditable="True"
+                      materialDesign:HintAssist.Hint="Zimmer auswählen"
+                      materialDesign:HintAssist.HintOpacity=".26"/>
+
+            <!-- Number input for person amount -->
+            <TextBox Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     VerticalAlignment="Center"
+                     Height="50"
+                     Width="70"
+                     AcceptsReturn="True"
+                     IsReadOnly="false"
+                     TextWrapping="Wrap"
+                     PreviewTextInput="NumberValidationTextBox"
+                     Margin="35,0,0,0"/>
+
+            <!-- Select Customer from database -->
+            <ComboBox Grid.Row="1"  Grid.Column="0" x:Name="CustomerComboBox" DisplayMemberPath="Name" SelectedValuePath="ID"
+                      IsEditable="True"
+                      materialDesign:HintAssist.Hint="Kunden auswählen"
+                      materialDesign:HintAssist.HintOpacity=".26"/>
+            <!-- Switch to customer tab to create new customer entry -->
+            <Button Grid.Row="1" Grid.Column="1" Content="Neu..." Width="100" Click="SwitchToCustomer"/>
+
+            <!-- Select Date from calendar for the time of stay-->
+            <DatePicker Grid.Row="2" Grid.Column="0" x:Name="BeginDatePicker"/>
+            <DatePicker Grid.Row="2" Grid.Column="1" x:Name="EndDatePicker" Width="245" HorizontalAlignment="Right"/>
+
+            <!-- Select the type of stay from database -->
+            <ComboBox Grid.Row="3"  Grid.Column="0" x:Name="TypeOfStayComboBox" DisplayMemberPath="Bezeichnung" SelectedValuePath="ID"
+                      IsEditable="True"
+                      materialDesign:HintAssist.Hint="Aufenthaltsart auswählen"
+                      materialDesign:HintAssist.HintOpacity=".26"/>
+        </Grid>
+
+        <!-- Top-Right | Information to the selected room -->
+        <!-- Name -->
+        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Height="60">
+            <TextBox x:Name="RoomName" Width="150" Height="45"/>
+        </Grid>
+        
+        <Grid Grid.Row="0" Grid.Column="1" Height="212.5" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- TODO: Bind data in .cs!! -->
+            <TextBox Grid.Row="0" Grid.Column="0"/>
+            <TextBox Grid.Row="1" Grid.Column="0"/>
+            <TextBox Grid.Row="2" Grid.Column="0" Width="100" HorizontalAlignment="Left"/>
+            <TextBox Grid.Row="2" Grid.Column="0" Width="100" HorizontalAlignment="Right"/>
+            <TextBox Grid.Row="3" Grid.Column="0" Width="100" HorizontalAlignment="Left"/>
+            
+            <TextBox Grid.Row="0" Grid.Column="1"/>
+            
+            <TextBox Grid.Row="2" Grid.Column="1"
+                TextWrapping="Wrap"
+                VerticalAlignment="Stretch"
+                MinWidth="280"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Auto"
+                SpellCheck.IsEnabled="True"
+                materialDesign:HintAssist.Hint="Beschreibung"/>
+        </Grid>
+        
+        <!-- Bottom-Left | Price and extra beds -->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <CheckBox Grid.Row="0" Grid.Column="0"
+                      x:Name="ExtraBedCheckBox"
+                Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}"
+                IsChecked="False"
+                Content="Zustellbett" />
+
+            <!-- Extrabed amount textbox -->
+            <TextBox Grid.Row="0" Grid.Column="0"
+                     x:Name="ExtraBedTextBox"
+                     HorizontalAlignment="Right"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     VerticalAlignment="Center"
+                     Height="50"
+                     Width="70"
+                     AcceptsReturn="True"
+                     IsReadOnly="false"
+                     TextWrapping="Wrap"
+                     IsEnabled="{Binding Path=IsChecked, ElementName=ExtraBedCheckBox}"
+                     PreviewTextInput="NumberValidationTextBox"/>
+
+            <TextBox Grid.Row="2" Grid.Column="0"
+                     x:Name="PriceTextBox"
+                     HorizontalAlignment="Left"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                VerticalAlignment="Center"
+                Height="50"
+                Width="70"
+                AcceptsReturn="True"
+                IsReadOnly="True"
+                TextWrapping="Wrap"/>
+        </Grid>
+
+        <!-- Bottom-Right | Buttons -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Content="Preis berechnen"/>
+            <Button Grid.Row="1" Grid.Column="0" Content="Buchen"/>
+
+        </Grid>
+
     </Grid>
 </UserControl>
