@@ -18,7 +18,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
         private void UpdateDataGrid()
         {
             var dataset = RoomsDB.GetDataSetRooms();
-            ListView.ItemsSource = dataset.Tables["zimmer"]?.DefaultView;
+            ListView.ItemsSource = dataset.Tables["zimmer"].DefaultView;
         }
         private void OnAutoGeneratingColumn(object? sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -47,34 +47,19 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
         private void DataGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Selected Item
-            object item = ListView.SelectedItem; 
+            Rooms item = (Rooms)ListView.SelectedItem; 
             
             //Selected Item | id
-            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            //Selected Item | name
-            var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            //Selected Item | size
-            var size = (ListView.SelectedCells[2].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            //Selected Item | amount
-            var amount = (ListView.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            //Selected Item | extra bed capacity
-            var extraBedCapacity = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            //Selected Item | extra bed price
-            var extraBedPrice = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            //Selected Item | room sitatuion
-            var situation = (ListView.SelectedCells[5].Column.GetCellContent(item) as TextBlock)?.Text;
+            var id = item.ID;
 
-            
-            if (id != null)
+
+            if (item.ID == null)
             {
-                MessageBox.Show(id.ToString());
-                GetDescription(Int32.Parse(id));
+                return;
+            }
+            else
+            {
+                GetDescription(id);
             }
         }
         
@@ -110,7 +95,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
             
             RoomsDB.CreateRoom(new Rooms(Int32.Parse(id), name, size, Double.Parse(price), 
                 Int32.Parse(amount), description, Int32.Parse(extraBedCapacity), 
-            Double.Parse(extraBedPrice), situation, false, DateTime.Now));
+            Double.Parse(extraBedPrice), situation, false));
         }
         private void GetDescription(int id)
         {

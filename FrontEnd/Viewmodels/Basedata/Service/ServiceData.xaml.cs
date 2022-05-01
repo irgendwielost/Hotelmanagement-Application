@@ -44,11 +44,6 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Service
             {
                 e.Cancel = true;
             }
-
-            if (propertyDescriptor.DisplayName == "EntferntAm")
-            {
-                e.Cancel = true;
-            }
         }
 
         private void DataGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -62,6 +57,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Service
                 
                 if(id == null)
                 {
+                    MessageBox.Show("Keine ID");
                     return;
                 }
 
@@ -81,7 +77,6 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Service
 
                 if (id != null)
                 {
-                    MessageBox.Show(id.ToString());
                     GetDescription(Int32.Parse(id));
                 }
         }

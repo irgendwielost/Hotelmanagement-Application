@@ -59,7 +59,7 @@ namespace Hotelmanagement.BackEnd.Models.Service
                 {
                     return new Service(id, reader.GetString(1), reader.GetString(2), 
                         reader.GetDouble(3), reader.GetInt32(4), 
-                        reader.GetInt32(5), reader.GetBoolean(6), reader.GetDateTime(7));
+                        reader.GetInt32(5), reader.GetBoolean(6));
                 }
                 
             }
@@ -71,6 +71,38 @@ namespace Hotelmanagement.BackEnd.Models.Service
             }
 
             return null;
+        }
+        
+        public static void AddService(Service service)
+        {
+            using var db = new Database.Database();
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
+
+            try
+            {
+                var cmd = new MySqlCommand($"INSERT INTO `serviceangebote` (Bezeichnung, Beschreibung, Preis, " +
+                                           $"Kategorie_ID, Dauer-Minuten, Entfernt) VALUES ('{service.Designation}', '{service.Description}', " +
+                                           $"{service.Price}, " +
+                                           $"{service.Category_id}, {service.Duration_in_minutes}, false) " +
+                                           $"ON DUPLICATE KEY UPDATE Bezeichnung = '{service.Designation}', " +
+                                           $"Beschreibung = '{service.Description}', Preis =  {service.Price}, " +
+                                           $"Kategorie_ID = {service.Category_id}, Dauer-Minuten = {service.Duration_in_minutes}, " +
+                                           $"Entfernt = false", db.connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Es ist ein Fehler aufgetreten");
+            }
         }
     }
 }

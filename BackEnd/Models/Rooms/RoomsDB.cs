@@ -60,7 +60,7 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
                     return new Rooms(id, reader.GetString(1), reader.GetString(2), 
                         reader.GetDouble(3), reader.GetInt32(4), reader.GetString(5),
                         reader.GetInt32(6), reader.GetDouble(7),
-                        reader.GetString(8), reader.GetBoolean(9), reader.GetDateTime(10));
+                        reader.GetString(8), reader.GetBoolean(9));
                 }
                 
             }
@@ -88,12 +88,18 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
 
             try
             {
-                var cmd = new MySqlCommand($"INSERT INTO `zimmer` (Bezeichnung, Groesse, Standartpreis, " +
+                var cmd = new MySqlCommand($"INSERT INTO `zimmer` (ID, Bezeichnung, Groesse, Standardpreis, " +
                                            $"Anzahl, Beschreibung, Zustellbettkapazität, Zustellbettpreis, " +
-                                           $"Lage, Entfernt) VALUES ('{room.Designation}', '{room.Size}', {room.BasePrice}, " +
+                                           $"Lage, Entfernt) VALUES ({room.ID}'{room.Designation}', '{room.Size}', {room.BasePrice}, " +
                                            $"{room.Amount}, '{room.Description}', {room.ExtraBedCapacity}, " +
-                                           $"{room.ExtraBedPrice}, '{room.Situation}', false)", db.connection);
-                cmd.ExecuteNonQuery();
+                                           $"{room.ExtraBedPrice}, '{room.Situation}', false) " +
+                                           $"ON DUPLICATE KEY UPDATE Bezeichnung = '{room.Designation}', " +
+                                           $"Groesse = '{room.Size}', Standardpreis =  {room.BasePrice}, " +
+                                           $"Anzahl = {room.Amount}, Beschreibung = '{room.Description}', " +
+                                           $"Zustellbettkapazität = {room.ExtraBedCapacity}, " +
+                                           $"Zustellbettpreis = {room.ExtraBedPrice}, Lage = '{room.Situation}'," +
+                                           $" Entfernt = false", db.connection);
+                    cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

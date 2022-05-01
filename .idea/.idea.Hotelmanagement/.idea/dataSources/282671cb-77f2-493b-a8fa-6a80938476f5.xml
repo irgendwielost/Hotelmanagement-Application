@@ -1873,282 +1873,279 @@ Zimmer_ID</ColNames>
     <column id="519" parent="347" name="Entfernt">
       <Position>7</Position>
       <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="520" parent="347" name="EntferntAm">
-      <Position>8</Position>
-      <DataType>date|0s</DataType>
-    </column>
-    <index id="521" parent="347" name="Kategorie_ID">
+    <index id="520" parent="347" name="Kategorie_ID">
       <ColNames>Kategorie_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="522" parent="347" name="PRIMARY">
+    <key id="521" parent="347" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="523" parent="347" name="serviceangebote_ibfk_1">
+    <foreign-key id="522" parent="347" name="serviceangebote_ibfk_1">
       <ColNames>Kategorie_ID</ColNames>
       <RefTableName>serviceangebote-kategorien</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="524" parent="348" name="ID">
+    <column id="523" parent="348" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="525" parent="348" name="Bezeichnung">
+    <column id="524" parent="348" name="Bezeichnung">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="526" parent="348" name="Entfernt">
+    <column id="525" parent="348" name="Entfernt">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="527" parent="348" name="EntferntAm">
+    <column id="526" parent="348" name="EntferntAm">
       <Position>4</Position>
       <DataType>date|0s</DataType>
     </column>
-    <key id="528" parent="348" name="PRIMARY">
+    <key id="527" parent="348" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="529" parent="349" name="ID">
+    <column id="528" parent="349" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="530" parent="349" name="Bezeichnung">
+    <column id="529" parent="349" name="Bezeichnung">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="531" parent="349" name="Entfernt">
+    <column id="530" parent="349" name="Entfernt">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="532" parent="349" name="EntferntAm">
+    <column id="531" parent="349" name="EntferntAm">
       <Position>4</Position>
       <DataType>date|0s</DataType>
     </column>
-    <key id="533" parent="349" name="PRIMARY">
+    <key id="532" parent="349" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="534" parent="350" name="Spa-Produkt_ID">
+    <column id="533" parent="350" name="Spa-Produkt_ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="535" parent="350" name="Kunde_ID">
+    <column id="534" parent="350" name="Kunde_ID">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="536" parent="350" name="Spa-Produkt_ID">
+    <index id="535" parent="350" name="Spa-Produkt_ID">
       <ColNames>Spa-Produkt_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="537" parent="350" name="Kunde_ID">
+    <index id="536" parent="350" name="Kunde_ID">
       <ColNames>Kunde_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="538" parent="350" name="spa-produkte-ausleihe_ibfk_2">
+    <foreign-key id="537" parent="350" name="spa-produkte-ausleihe_ibfk_2">
       <ColNames>Spa-Produkt_ID</ColNames>
       <RefTableName>spa-produkte</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="539" parent="350" name="spa-produkte-ausleihe_ibfk_1">
+    <foreign-key id="538" parent="350" name="spa-produkte-ausleihe_ibfk_1">
       <ColNames>Kunde_ID</ColNames>
       <RefTableName>kunden</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="540" parent="351" name="ID">
+    <column id="539" parent="351" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="541" parent="351" name="Bezeichnung">
+    <column id="540" parent="351" name="Bezeichnung">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="542" parent="351" name="Preis">
+    <column id="541" parent="351" name="Preis">
       <Position>3</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="543" parent="351" name="Kategorie_ID">
+    <column id="542" parent="351" name="Kategorie_ID">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="544" parent="351" name="Entfernt">
+    <column id="543" parent="351" name="Entfernt">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="545" parent="351" name="EntferntAm">
+    <column id="544" parent="351" name="EntferntAm">
       <Position>6</Position>
       <DataType>date|0s</DataType>
     </column>
-    <index id="546" parent="351" name="Kategorie_ID">
+    <index id="545" parent="351" name="Kategorie_ID">
       <ColNames>Kategorie_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="547" parent="351" name="PRIMARY">
+    <key id="546" parent="351" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="548" parent="351" name="speisen_ibfk_1">
+    <foreign-key id="547" parent="351" name="speisen_ibfk_1">
       <ColNames>Kategorie_ID</ColNames>
       <RefTableName>speisen-kategorien</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="549" parent="352" name="ID">
+    <column id="548" parent="352" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="550" parent="352" name="Bezeichnung">
+    <column id="549" parent="352" name="Bezeichnung">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="551" parent="352" name="Entfernt">
+    <column id="550" parent="352" name="Entfernt">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="552" parent="352" name="EntferntAm">
+    <column id="551" parent="352" name="EntferntAm">
       <Position>4</Position>
       <DataType>date|0s</DataType>
     </column>
-    <key id="553" parent="352" name="PRIMARY">
+    <key id="552" parent="352" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="554" parent="353" name="Kunde_ID">
+    <column id="553" parent="353" name="Kunde_ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="555" parent="353" name="Geschlecht">
+    <column id="554" parent="353" name="Geschlecht">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="556" parent="353" name="Geburtsdatum">
+    <column id="555" parent="353" name="Geburtsdatum">
       <Position>3</Position>
       <DataType>date|0s</DataType>
     </column>
-    <column id="557" parent="353" name="Anreisegrund">
+    <column id="556" parent="353" name="Anreisegrund">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="558" parent="353" name="Familienstand">
+    <column id="557" parent="353" name="Familienstand">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="559" parent="353" name="Unternehmen">
+    <column id="558" parent="353" name="Unternehmen">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="560" parent="353" name="Beruf">
+    <column id="559" parent="353" name="Beruf">
       <Position>7</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="561" parent="353" name="Lebensstil">
+    <column id="560" parent="353" name="Lebensstil">
       <Position>8</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="562" parent="353" name="Einkommen">
+    <column id="561" parent="353" name="Einkommen">
       <Position>9</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="563" parent="353" name="Geschäftsreise">
+    <column id="562" parent="353" name="Geschäftsreise">
       <Position>10</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="564" parent="353" name="Entfernt">
+    <column id="563" parent="353" name="Entfernt">
       <Position>11</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="565" parent="353" name="EntferntAm">
+    <column id="564" parent="353" name="EntferntAm">
       <Position>12</Position>
       <DataType>date|0s</DataType>
     </column>
-    <index id="566" parent="353" name="kunde_id">
+    <index id="565" parent="353" name="kunde_id">
       <ColNames>Kunde_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="567" parent="353" name="kunde_id">
+    <foreign-key id="566" parent="353" name="kunde_id">
       <ColNames>Kunde_ID</ColNames>
       <RefTableName>kunden</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="568" parent="354" name="ID">
+    <column id="567" parent="354" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="569" parent="354" name="Bezeichnung">
+    <column id="568" parent="354" name="Bezeichnung">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="570" parent="354" name="Groesse">
+    <column id="569" parent="354" name="Groesse">
       <Position>3</Position>
       <DataType>varchar(4)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="571" parent="354" name="Standartpreis">
+    <column id="570" parent="354" name="Standardpreis">
       <Position>4</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="572" parent="354" name="Anzahl">
+    <column id="571" parent="354" name="Anzahl">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="573" parent="354" name="Beschreibung">
+    <column id="572" parent="354" name="Beschreibung">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="574" parent="354" name="Zustellbettkapazität">
+    <column id="573" parent="354" name="Zustellbettkapazität">
       <Position>7</Position>
       <DataType>int(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="575" parent="354" name="Zustellbettpreis">
+    <column id="574" parent="354" name="Zustellbettpreis">
       <Position>8</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="576" parent="354" name="Lage">
+    <column id="575" parent="354" name="Lage">
       <Position>9</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="577" parent="354" name="Entfernt">
+    <column id="576" parent="354" name="Entfernt">
       <Position>10</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="578" parent="354" name="EntferntAm">
+    <column id="577" parent="354" name="EntferntAm">
       <Position>11</Position>
       <DataType>date|0s</DataType>
     </column>
-    <key id="579" parent="354" name="PRIMARY">
+    <key id="578" parent="354" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>

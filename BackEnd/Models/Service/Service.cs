@@ -4,7 +4,7 @@ namespace Hotelmanagement.BackEnd.Models.Service
     public class Service
     {
         public Service(int id, string designation, string description, double price, int category_id,
-            int duration_in_minutes, bool deleted, DateTime deleted_at )
+            int duration_in_minutes, bool deleted)
         {
             ID = id;
             Designation = designation;
@@ -13,7 +13,6 @@ namespace Hotelmanagement.BackEnd.Models.Service
             Category_id = category_id;
             Duration_in_minutes = duration_in_minutes;
             Deleted = deleted;
-            Deleted_at = deleted_at;
         }
     
         public int ID { get; set; }
@@ -23,6 +22,5 @@ namespace Hotelmanagement.BackEnd.Models.Service
         public int Category_id { get; set; }
         public int Duration_in_minutes { get; set; }
         public bool Deleted { get; set; }
-        public DateTime Deleted_at { get; set; }
     }
 }
