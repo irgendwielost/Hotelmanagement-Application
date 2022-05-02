@@ -47,29 +47,37 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
         private void DataGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Selected Item
-            Rooms item = (Rooms)ListView.SelectedItem; 
+            object item = ListView.SelectedItem; 
             
             //Selected Item | id
-            var id = item.ID;
-
-
-            if (item.ID == null)
+            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            //Check if id is null
+            if(id == null)
             {
                 return;
             }
-            else
+            
+            //Display description of room
+            if (id != "")
             {
-                GetDescription(id);
+                GetDescription(Int32.Parse(id));
             }
         }
         
         private void AddRoom(object sender, RoutedEventArgs e)
         {
             //Selected Item
-            object item = ListView.SelectedItem;
+            object item = ListView.SelectedItem; 
             
             //Selected Item | id
             var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            if (id == "")
+            {
+                id = "0";
+            }
+            
             //Selected Item | name
             var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
             

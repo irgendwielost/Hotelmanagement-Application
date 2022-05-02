@@ -6,7 +6,7 @@ namespace Hotelmanagement.BackEnd.Models.Customer
     public class Customer
     {
         public Customer(int id, string name, string telefon, string email, string strasse,
-            string wohnort, string plz, bool entfernt, DateTime entfernt_am )
+            string wohnort, string plz, bool entfernt)
         {
             ID = id;
             Name = name;
@@ -16,7 +16,6 @@ namespace Hotelmanagement.BackEnd.Models.Customer
             Wohnort = wohnort;
             Plz = plz;
             Entfernt = entfernt;
-            Entfernt_am = entfernt_am;
         }
         
         
@@ -28,6 +27,5 @@ namespace Hotelmanagement.BackEnd.Models.Customer
         public string Wohnort { get; set; }
         public string Plz { get; set; }
         public bool Entfernt { get; set; }
-        public DateTime Entfernt_am { get; set; }
     }
 }

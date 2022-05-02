@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using Hotelmanagement.BackEnd.Models.Visit;
 
 namespace Hotelmanagement.FrontEnd.Viewmodels
 {
@@ -8,5 +10,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
         {
             InitializeComponent();
         }
+        
+        
     }
 }

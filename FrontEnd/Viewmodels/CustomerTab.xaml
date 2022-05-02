@@ -110,8 +110,9 @@
         <CheckBox Grid.Column="1" Grid.Row="3" Margin="15,85,10,15"></CheckBox>
 
         <!-- Column 0 | Grid 3  -->
-        <Button Grid.Column="0" Grid.Row="4" Margin="30,10,45,65">Speichern</Button>
-        <Button Grid.Column="0" Grid.Row="4" Margin="30,70,45,5">Löschen</Button>
+        <Button Grid.Column="0" Grid.Row="3" Margin="30,10,45,65">Speichern</Button>
+        <Button Grid.Column="0" Grid.Row="3" Margin="30,70,45,5">Löschen</Button>
+        <Button Click="OpenTargetAudienceFactorsWindow" Grid.Column="2" Grid.Row="3" Margin="30,70,45,5">Zielgruppenfaktoren</Button>
 
         <!-- Datagrid -->
         <DataGrid 

@@ -1,37 +1,75 @@
 ﻿using System;
 using System.Data;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
-namespace Hotelmanagement.BackEnd.ViewModels.TypesOfStay;
-
-public class TypesOfStayDB
+namespace Hotelmanagement.BackEnd.Models.TypesOfStay
 {
-    public static DataSet GetDataSetTypesOfStay()
+    public class TypesOfStayDB
     {
-        using var db = new Database.Database();
+        public static DataSet GetDataSetTypesOfStay()
+        {
+            using var db = new Database.Database();
             
-        try
-        {
-            db.connection.Open();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"table opening error{e}");
-            throw;
-        }
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
             
-        try
-        {
+            try
+            {
                 
-            var adapter = new MySqlDataAdapter("select * from `aufenthaltsarten`", db.connection);
-            DataSet dataSet = new();
-            adapter.Fill(dataSet, "aufenthaltsarten");
-            return dataSet;
+                var adapter = new MySqlDataAdapter("select * from `aufenthaltsarten`", db.connection);
+                DataSet dataSet = new();
+                adapter.Fill(dataSet, "aufenthaltsarten");
+                return dataSet;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return null;
         }
-        catch (Exception ex)
+        
+        public static ViewModels.TypesOfStay.TypesOfStay GetTypeOfStayByID(int id)
         {
-            throw;
+            using var db = new Database.Database();
+            
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
+            
+            try
+            {
+                var cmd = new MySqlCommand($"SELECT * FROM `aufenthaltsarten` WHERE ID={id}", db.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if(reader.Read())
+                {
+                    return new ViewModels.TypesOfStay.TypesOfStay(id, reader.GetString(1), 
+                        reader.GetDouble(2), reader.GetBoolean(3));
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Es ist ein Fehler aufgetreten");
+                return null;
+            }
+
+            return null;
         }
-        return null;
     }
 }

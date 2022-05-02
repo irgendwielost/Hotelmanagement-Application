@@ -90,7 +90,7 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
             {
                 var cmd = new MySqlCommand($"INSERT INTO `zimmer` (ID, Bezeichnung, Groesse, Standardpreis, " +
                                            $"Anzahl, Beschreibung, Zustellbettkapazität, Zustellbettpreis, " +
-                                           $"Lage, Entfernt) VALUES ({room.ID}'{room.Designation}', '{room.Size}', {room.BasePrice}, " +
+                                           $"Lage, Entfernt) VALUES ({room.ID},'{room.Designation}', '{room.Size}', {room.BasePrice}, " +
                                            $"{room.Amount}, '{room.Description}', {room.ExtraBedCapacity}, " +
                                            $"{room.ExtraBedPrice}, '{room.Situation}', false) " +
                                            $"ON DUPLICATE KEY UPDATE Bezeichnung = '{room.Designation}', " +

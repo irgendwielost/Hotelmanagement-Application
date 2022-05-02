@@ -6,11 +6,15 @@
              xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
+             Background="white"
              d:DesignHeight="545" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -19,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <!-- Top-Left | Select data -->
-        <Grid Row="0" Grid.Column="0">
+        <Grid Row="0" Grid.Column="1">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -43,17 +47,19 @@
                       materialDesign:HintAssist.HintOpacity=".26"/>
 
             <!-- Number input for person amount -->
-            <TextBox Grid.Column="1"
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     x:Name="PersonAmount"
                      HorizontalAlignment="Left"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      VerticalAlignment="Center"
-                     Height="50"
-                     Width="70"
+                     Margin="20,0,0,0"
+                     Height="52"
+                     Width="132"
                      AcceptsReturn="True"
                      IsReadOnly="false"
                      TextWrapping="Wrap"
-                     PreviewTextInput="NumberValidationTextBox"
-                     Margin="35,0,0,0"/>
+                     materialDesign:HintAssist.Hint="Personenanzahl"
+                     PreviewTextInput="NumberValidationTextBox"/>
 
             <!-- Select Customer from database -->
             <ComboBox Grid.Row="1"  Grid.Column="0" x:Name="CustomerComboBox" DisplayMemberPath="Name" SelectedValuePath="ID"
@@ -61,11 +67,13 @@
                       materialDesign:HintAssist.Hint="Kunden auswählen"
                       materialDesign:HintAssist.HintOpacity=".26"/>
             <!-- Switch to customer tab to create new customer entry -->
-            <Button Grid.Row="1" Grid.Column="1" Content="Neu..." Width="100" Click="SwitchToCustomer"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="Neu..." Width="100" Click="SwitchToCustomer" Margin="18,17,125,19"/>
 
             <!-- Select Date from calendar for the time of stay-->
-            <DatePicker Grid.Row="2" Grid.Column="0" x:Name="BeginDatePicker"/>
-            <DatePicker Grid.Row="2" Grid.Column="1" x:Name="EndDatePicker" Width="245" HorizontalAlignment="Right"/>
+            <DatePicker Grid.Row="2" Grid.Column="0" x:Name="BeginDatePicker" materialDesign:HintAssist.Hint="Beginn"/>
+            <DatePicker Grid.Row="2" Grid.Column="1" x:Name="EndDatePicker" 
+                        materialDesign:HintAssist.Hint="Abfahrt"
+                        Width="225" HorizontalAlignment="Left" Margin="18,0,0,0"/>
 
             <!-- Select the type of stay from database -->
             <ComboBox Grid.Row="3"  Grid.Column="0" x:Name="TypeOfStayComboBox" DisplayMemberPath="Bezeichnung" SelectedValuePath="ID"
@@ -76,11 +84,11 @@
 
         <!-- Top-Right | Information to the selected room -->
         <!-- Name -->
-        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Height="60">
-            <TextBox x:Name="RoomName" Width="150" Height="45"/>
+        <Grid Grid.Row="0" Grid.Column="3" VerticalAlignment="Top" Height="30">
+            <TextBlock x:Name="RoomName" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        
-        <Grid Grid.Row="0" Grid.Column="1" Height="212.5" VerticalAlignment="Bottom">
+
+        <Grid Grid.Row="0" Grid.Column="3" Height="240" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -92,28 +100,43 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                    <Setter Property="Width" Value="240"/>
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Padding" Value="10"/>
+                </Style>
+            </Grid.Resources>
             
-            <!-- TODO: Bind data in .cs!! -->
-            <TextBox Grid.Row="0" Grid.Column="0"/>
-            <TextBox Grid.Row="1" Grid.Column="0"/>
-            <TextBox Grid.Row="2" Grid.Column="0" Width="100" HorizontalAlignment="Left"/>
-            <TextBox Grid.Row="2" Grid.Column="0" Width="100" HorizontalAlignment="Right"/>
-            <TextBox Grid.Row="3" Grid.Column="0" Width="100" HorizontalAlignment="Left"/>
-            
-            <TextBox Grid.Row="0" Grid.Column="1"/>
-            
-            <TextBox Grid.Row="2" Grid.Column="1"
-                TextWrapping="Wrap"
-                VerticalAlignment="Stretch"
-                MinWidth="280"
+            <TextBox x:Name="SizeTextBox" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Größe" />
+            <TextBox x:Name="AvailableTextBox" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Verfügbar" />
+            <TextBox x:Name="ExtraBedCapacityTextBox" Grid.Row="2" Grid.Column="0"
+                     Width="145" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Zustellbettkapazität" Margin="0,4,0,4" />
+            <TextBox x:Name="ExtraBedPriceTextBox" Grid.Row="2" Grid.Column="0" 
+                     Width="92" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Preis" Margin="150,5,0,5" />
+            <TextBox x:Name="RoomPriceTextBox" Grid.Row="3" Grid.Column="0" 
+                     Width="115" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Gesamtpreis" Margin="0,5,0,5" />
+
+            <TextBox
+                x:Name="DescriptionTextBox"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                VerticalAlignment="Top"
+                Height="110"
                 AcceptsReturn="True"
+                TextWrapping="Wrap"
+                IsReadOnly="True"
                 VerticalScrollBarVisibility="Auto"
-                SpellCheck.IsEnabled="True"
-                materialDesign:HintAssist.Hint="Beschreibung"/>
+                materialDesign:HintAssist.Hint="Beschreibung" 
+                Margin="2,2,28,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1"/>
+
+            <TextBox x:Name="SituationTextBox" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Lage" Width="212.5" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
         </Grid>
-        
+
         <!-- Bottom-Left | Price and extra beds -->
-        <Grid Grid.Row="1" Grid.Column="0">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -135,31 +158,24 @@
             <!-- Extrabed amount textbox -->
             <TextBox Grid.Row="0" Grid.Column="0"
                      x:Name="ExtraBedTextBox"
-                     HorizontalAlignment="Right"
+                     HorizontalAlignment="Left"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                     VerticalAlignment="Center"
+                     VerticalAlignment="Top"
                      Height="50"
-                     Width="70"
+                     Width="140"
                      AcceptsReturn="True"
                      IsReadOnly="false"
                      TextWrapping="Wrap"
+                     materialDesign:HintAssist.Hint="Anzahl"
                      IsEnabled="{Binding Path=IsChecked, ElementName=ExtraBedCheckBox}"
-                     PreviewTextInput="NumberValidationTextBox"/>
+                     PreviewTextInput="NumberValidationTextBox" Margin="100,8,0,0" FontSize="15" FontWeight="Bold"/>
 
-            <TextBox Grid.Row="2" Grid.Column="0"
-                     x:Name="PriceTextBox"
-                     HorizontalAlignment="Left"
-                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                VerticalAlignment="Center"
-                Height="50"
-                Width="70"
-                AcceptsReturn="True"
-                IsReadOnly="True"
-                TextWrapping="Wrap"/>
+            <TextBlock x:Name="TotalPriceTextBlock" Grid.Row="2" Grid.Column="0" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="36"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="€" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="36" Margin="154,0,0,0"/>
         </Grid>
 
         <!-- Bottom-Right | Buttons -->
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -170,8 +186,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Content="Preis berechnen"/>
-            <Button Grid.Row="1" Grid.Column="0" Content="Buchen"/>
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                    <Setter Property="Width" Value="240"/>
+                    <Setter Property="Height" Value="50"/>
+                </Style>
+            </Grid.Resources>
+            <Button Grid.Row="0" Grid.Column="0" Click="CalculatePrice" Content="Preis berechnen"
+                    Margin="130,68,125,19" Grid.ColumnSpan="2"/>
+            <Button Grid.Row="1" Grid.Column="0" Content="Buchen" Margin="130,11,125,75" Grid.ColumnSpan="2"/>
 
         </Grid>
 

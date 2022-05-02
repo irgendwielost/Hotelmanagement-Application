@@ -88,13 +88,13 @@ namespace Hotelmanagement.BackEnd.Models.Service
 
             try
             {
-                var cmd = new MySqlCommand($"INSERT INTO `serviceangebote` (Bezeichnung, Beschreibung, Preis, " +
-                                           $"Kategorie_ID, Dauer-Minuten, Entfernt) VALUES ('{service.Designation}', '{service.Description}', " +
+                var cmd = new MySqlCommand($"INSERT INTO `serviceangebote` (ID, Bezeichnung, Beschreibung, Preis, " +
+                                           $"Kategorie_ID, `Dauer-Minuten`, Entfernt) VALUES ({service.ID},'{service.Designation}', '{service.Description}', " +
                                            $"{service.Price}, " +
                                            $"{service.Category_id}, {service.Duration_in_minutes}, false) " +
                                            $"ON DUPLICATE KEY UPDATE Bezeichnung = '{service.Designation}', " +
                                            $"Beschreibung = '{service.Description}', Preis =  {service.Price}, " +
-                                           $"Kategorie_ID = {service.Category_id}, Dauer-Minuten = {service.Duration_in_minutes}, " +
+                                           $"Kategorie_ID = {service.Category_id}, `Dauer-Minuten` = {service.Duration_in_minutes}, " +
                                            $"Entfernt = false", db.connection);
                 cmd.ExecuteNonQuery();
             }

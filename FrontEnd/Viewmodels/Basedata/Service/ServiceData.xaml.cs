@@ -45,7 +45,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Service
                 e.Cancel = true;
             }
         }
-
+        
         private void DataGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
              
@@ -75,12 +75,44 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Service
                 var duration = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
 
 
-                if (id != null)
+                if (id != "")
                 {
                     GetDescription(Int32.Parse(id));
                 }
         }
 
+        private void AddService(object sender, RoutedEventArgs e)
+        {
+            //Selected Item
+            object item = ListView.SelectedItem; 
+            
+            //Selected Item | id
+            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            if (id == "")
+            {
+                id = 0.ToString();
+            }
+            
+            //Selected Item | name
+            var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            //Selected Item | size
+            var price = (ListView.SelectedCells[2].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            //Selected Item | amount
+            var category_id /* change to category name? */ =
+                (ListView.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            //Selected Item | extra bed capacity
+            var duration = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            string description = DescriptionBox.Text;
+            
+            ServiceDB.AddService(new BackEnd.Models.Service.Service(Int32.Parse(id), name, 
+                description, Double.Parse(price), Int32.Parse(category_id), 
+                Int32.Parse(duration), false));
+        }
         private void GetDescription(int id)
         {
             BackEnd.Models.Service.Service service = ServiceDB.GetServiceById(id);
