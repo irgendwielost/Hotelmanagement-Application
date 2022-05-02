@@ -13,7 +13,6 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -39,79 +38,56 @@
 
         <!-- Column 0 | Row 0  -->
         <!-- Name -->
-        <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Margin="5, 7, 0, 0">Name</Label>
-        <TextBox x:Name="Name" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Margin="5, 25, 0, 0"/>
+        <TextBox x:Name="Name" Grid.Column="0" Grid.Row="0" 
+                 VerticalAlignment="Top" 
+                 materialDesign:HintAssist.Hint="Name"
+                 Margin="5, 25, 0, 0"/>
 
         <!-- Column 0 | Row 0  -->
         <!-- E-Mail -->
-        <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Margin="5, 0, 0, 50">E-Mail</Label>
-        <TextBox x:Name="Email" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Margin="5, 0, 0, 25"/>
+        <TextBox x:Name="Email" Grid.Column="0" Grid.Row="0"
+                 materialDesign:HintAssist.Hint="E-Mail"
+                 VerticalAlignment="Bottom"
+                 Margin="5, 0, 0, 25"/>
 
         <!-- Column 0 | Row 1  -->
         <!-- Birthday -->
-        <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="5, 7, 0, 0">Geburtstag</Label>
-        <DatePicker x:Name="Birthday" Grid.Column="0" Grid.Row="1" Width="200" 
-                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5, 25, 0, 0"/>
+        <DatePicker x:Name="Birthday" Grid.Column="0" Grid.Row="1"
+                    materialDesign:HintAssist.Hint="Geburtstag"
+                    Width="200" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="5, 25, 0, 0"/>
 
         <!-- Telephone -->
-        <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="5, 0, 0, 50">Telefonnummer</Label>
-        <TextBox x:Name="Tel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="5, 0, 0, 25"/>
+        <TextBox x:Name="Tel" Grid.Column="0" Grid.Row="1" 
+                 materialDesign:HintAssist.Hint="Telefonnummer"
+                 VerticalAlignment="Bottom" 
+                 Margin="5, 0, 0, 25"/>
 
         <!-- Column 1 | Grid 0  -->
         <!-- Street -->
-        <Label Grid.Column="0" Grid.Row="2"  VerticalAlignment="Top" Margin="5, 7, 0, 0">Straße</Label>
-        <TextBox x:Name="Street" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" Margin="5, 25, 0, 0"/>
+        <TextBox x:Name="Street" Grid.Column="0" Grid.Row="2" 
+                 materialDesign:HintAssist.Hint="Straße"
+                 VerticalAlignment="Top" 
+                 Margin="5, 25, 0, 0"/>
 
         <!-- Place -->
-        <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Margin="5, 0, 0, 50">Wohnort</Label>
-        <TextBox x:Name="Place" Grid.Column="0" Grid.Row="2" Width="135" VerticalAlignment="Bottom" Margin="5, 0, 0, 25"/>
+        <TextBox x:Name="Place" Grid.Column="0" Grid.Row="2" 
+                 materialDesign:HintAssist.Hint="Wohnort" 
+                 VerticalAlignment="Bottom" 
+                 Margin="5, 0, 0, 25"/>
 
         <!-- Postalcode -->
-        <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Margin="137,0,0,50">Postleitzahl</Label>
         <TextBox x:Name="PostalCode" Grid.Column="0" Grid.Row="2" 
-                 Width="60" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,45,25"/>
-
-
-
-        <!-- Column 1 | Grid 0  -->
-        <!-- Gender -->
-        <Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="0, 7, 0, 0">Geschlecht</Label>
-        <TextBox x:Name="Gender" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
-
-        <!-- Travelreason -->
-        <Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Anreisegrund</Label>
-        <TextBox x:Name="Travelreason" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" Margin="0, 0, 0, 25"/>
-        <!-- Column 1 | Grid 1  -->
-        <!-- Familystate -->
-        <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Familienstand</Label>
-        <TextBox x:Name="Familystate" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0, 0, 0, 25"/>
-
-        <!-- Lifestyle -->
-        <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0, 7, 0, 0">Lifestyle</Label>
-        <TextBox x:Name="Lifestyle" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
-
-        <!-- Column 1 | Grid 2  -->
-        <!-- Job -->
-        <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0, 7, 0, 0">Job</Label>
-        <TextBox x:Name="Job" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
-
-        <!-- Company -->
-        <Label Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Unternehmen</Label>
-        <TextBox x:Name="Company" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="0, 0, 0, 25"/>
-
-        <!-- Column 1 | Grid 3  -->
-        <!-- Salary -->
-        <Label Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Margin="0, 7, 0, 0">Lohn</Label>
-        <ComboBox x:Name="Salary" Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Left"
-                  VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
-
-        <!-- Businesstrip -->
-        <Label Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Geschäftsreise</Label>
-        <CheckBox Grid.Column="1" Grid.Row="3" Margin="15,85,10,15"></CheckBox>
+                 materialDesign:HintAssist.Hint="Postleitzahl"
+                 Width="100" 
+                 HorizontalAlignment="Right"
+                 Margin="0,56,0,0"/>
 
         <!-- Column 0 | Grid 3  -->
-        <Button Grid.Column="0" Grid.Row="3" Margin="30,10,45,65">Speichern</Button>
-        <Button Grid.Column="0" Grid.Row="3" Margin="30,70,45,5">Löschen</Button>
+        <Button Click="AddCustomer" Grid.Column="0" Grid.Row="3" Margin="30,10,45,65">Speichern</Button>
+        <Button Click="DeleteCustomer" Grid.Column="0" Grid.Row="3" Margin="30,70,45,5">Löschen</Button>
         <Button Click="OpenTargetAudienceFactorsWindow" Grid.Column="2" Grid.Row="3" Margin="30,70,45,5">Zielgruppenfaktoren</Button>
 
         <!-- Datagrid -->
@@ -121,8 +97,7 @@
             SelectionUnit="Cell"
             SelectionMode="Extended" 
             AutoGeneratingColumn="OnAutoGeneratingColumn"
-            Grid.ColumnSpan="2" Margin="0,0,0,134" Grid.RowSpan="3" Grid.Column="2">
-        </DataGrid>
+            Grid.ColumnSpan="2" Margin="2,0,0,134" Grid.RowSpan="3" Grid.Column="1"/>
 
     </Grid>
 </UserControl>

@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels.Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Zielgruppenfaktoren" Height="545" Width="1000">
+        Title="Zielgruppenfaktoren" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -22,60 +23,96 @@
 
         <Grid.Resources>
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
-                <Setter Property="Width" Value="120"/>
-                <Setter Property="Height" Value="50"/>  
+                <Setter Property="Width" Value="185"/>
+                <Setter Property="Height" Value="50"/>
             </Style>
         </Grid.Resources>
-        
+
         <!-- Customer Information -->
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="[Leni Reichelt]" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="24"/>
-        
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="2" 
+                   x:Name="CustomerId"
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" 
+                   FontWeight="Bold" FontSize="24" Margin="350,-1,0,0" 
+                   Foreground="White"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="[Leni Reichelt]" 
+                   x:Name="CustomerName"
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" 
+                   FontWeight="Bold" FontSize="24"/>
+
         <!-- Style defintion for textboxes -->
         <!-- Inputs -->
-        
+
         <!-- Column 1 | Grid 0  -->
         <!-- Gender -->
-        <TextBox x:Name="Gender" Grid.Row="1" Grid.Column="0" 
+        <TextBox x:Name="Gender" Grid.Row="1" Grid.Column="1" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  materialDesign:HintAssist.Hint="Geschlecht" Margin="0,5,0,0" Cursor="Arrow"/>
-        
+
 
         <!-- Travelreason -->
-        <TextBox x:Name="Travelreason" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" 
+        <TextBox x:Name="Travelreason" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" 
                  materialDesign:HintAssist.Hint="Reisegrund" 
                  VerticalAlignment="Bottom" 
                  Margin="0,0,0,5"/>
-        
+
         <!-- Column 1 | Grid 1  -->
         <!-- Familystate -->
-        <TextBox x:Name="Familystate" Grid.Column="0" Grid.Row="2" 
+        <TextBox x:Name="Familystate" Grid.Column="1" Grid.Row="2" 
                  materialDesign:HintAssist.Hint="Familienstand"
                  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0, 0, 0, 5"/>
 
         <!-- Lifestyle -->
-        <TextBox x:Name="Lifestyle" Grid.Column="0" Grid.Row="2"
+        <TextBox x:Name="Lifestyle" Grid.Column="1" Grid.Row="2"
                  materialDesign:HintAssist.Hint="Lifestyle"
                  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0, 5, 0, 0"/>
 
         <!-- Column 1 | Grid 2  -->
         <!-- Job -->
-        <TextBox x:Name="Job" Grid.Column="0" Grid.Row="3" 
+        <TextBox x:Name="Job" Grid.Column="2" Grid.Row="1" 
                  materialDesign:HintAssist.Hint="Beruf"
                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 5, 0, 0"/>
 
         <!-- Company -->
-        <TextBox x:Name="Company" Grid.Column="0" Grid.Row="3" 
+        <TextBox x:Name="Company" Grid.Column="2" Grid.Row="1" 
                  materialDesign:HintAssist.Hint="Firma"
                  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0, 0, 0, 5"/>
 
         <!-- Column 1 | Grid 3  -->
         <!-- Salary -->
-        <Label Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Margin="0, 7, 0, 0">Lohn</Label>
-        <ComboBox x:Name="Salary" Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Left"
-                  VerticalAlignment="Top" Margin="0, 25, 0, 0"/>
+        <ComboBox Grid.Row="2" Grid.Column="2"
+            x:Name="Salary"
+            DisplayMemberPath="Bereich" 
+            SelectedValuePath="ID"
+            Style="{StaticResource MaterialDesignFilledComboBox}"
+            materialDesign:HintAssist.Hint="Lohn"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="0, 5, 0, 0"
+            Width="180"
+            Height="50"/>
 
         <!-- Businesstrip -->
-        <Label Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Margin="0, 0, 0, 50">Geschäftsreise</Label>
-        <CheckBox Grid.Column="1" Grid.Row="3" Margin="15,85,10,15"></CheckBox>
+        <CheckBox 
+                x:Name="businesstrip"
+                Grid.Column="2" Grid.Row="2"
+                  Content="Geschäftsreise"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Bottom"
+                  Margin="0, 0, 0, 5"
+                  Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}" 
+                  Width="115" Cursor="Hand"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button 
+                Click="AddTaf"
+                Content="Speichern" 
+                Width="200"
+                Height="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>
