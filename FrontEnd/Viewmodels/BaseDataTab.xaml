@@ -42,6 +42,7 @@
                             <Button Click="Rooms">Räume</Button>
                             <Button Click="Service">Aufenthaltsarten</Button>
                             <Button Click="Rooms">Bezahlmethoden</Button>
+                            <Button Click="Rooms">Reklamation</Button>
                         </StackPanel>
                     </Expander>
                     <!-- Restaurant -->

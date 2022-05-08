@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using Hotelmanagement.BackEnd.Models.Customer;
@@ -49,7 +50,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             var id = "0";
             var name = Name.Text;
             var email = Email.Text;
-            DateTime birthday = Birthday.SelectedDate.Value;
+            var birthday = this.Birthday.SelectedDate;
             var telephone = Tel.Text;
             var address = Street.Text;
             var place = Place.Text;
@@ -57,16 +58,35 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             
             if(name != "" && email != "" && telephone != "" && address != "" && place != "" && zip != "")
             {
-                CustomerDB.CreateCustomer(new Customer(Int32.Parse(id), name, DateTime.Parse(birthday.ToString()), telephone, email,
-                    address, place, zip, false));
-                UpdateDataGrid();
-                
-                if(MessageBox.Show("Möchten sie noch Zielgruppenfaktoren hinzufügen?", "Question", 
-                       MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (birthday != null)
                 {
-                    TargetAudienceFactors targetAudienceFactors = new TargetAudienceFactors(Int32.Parse(1.ToString()));
-                    targetAudienceFactors.Show();
+                    var selectedBirthday = birthday.Value.ToShortDateString();
+                    
+                    long customerID = CustomerDB.CreateCustomer(new Customer(Int32.Parse(id), name, 
+                        DateTime.Parse(selectedBirthday), telephone, email,
+                        address, place, zip, false));
+                    Name.Text = "";
+                    Email.Text = "";
+                    Tel.Text = "";
+                    Street.Text = "";
+                    Place.Text = "";
+                    PostalCode.Text = "";
+                    Birthday.SelectedDate = null;
+                    UpdateDataGrid();
+                
+                    if (customerID != 0)
+                    {
+                        if(MessageBox.Show("Möchten sie noch Zielgruppenfaktoren hinzufügen?", "Question", 
+                            MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                        {
+                            TargetAudienceFactors targetAudienceFactors = new TargetAudienceFactors(Int32.Parse(customerID.ToString()));
+                            targetAudienceFactors.Show();
+                        }
+                    }
                 }
+                
+               
+                
             }
             else
             {
@@ -99,6 +119,49 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
                 MessageBox.Show("Es wurde kein Kunde ausgewählt");
             }
             
+        }
+        
+        private void DataGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             
+            //Selected Item
+            object item = ListView.SelectedItem;
+            
+            //Selected Item | id
+            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            if(id == null)
+            {
+                MessageBox.Show("Keine ID");
+                return;
+            }
+
+            //Selected Item | name
+            var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
+
+
+            //Selected Item | birthday
+            var birthday = (ListView.SelectedCells[2].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            //Selected Item | email
+            var phone = (ListView.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text;
+            var email = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+
+            //Selected Item | street
+            var street = (ListView.SelectedCells[5].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            var place = (ListView.SelectedCells[6].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+            var postalcode = (ListView.SelectedCells[7].Column.GetCellContent(item) as TextBlock)?.Text;
+
+            Name.Text = name;
+            //Birthday.Text = birthday;
+            Tel.Text = phone;
+            Email.Text = email;
+            Street.Text = street;
+            Place.Text = place;
+            PostalCode.Text = postalcode;
         }
     }
 }

@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6afb42e2-55d4-4505-87a8-3dc22eedea43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/Models/AudienceFactors/AudienceFactorsDB.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/Models/Salary/Salary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/Models/Salary/SalaryDB.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources/282671cb-77f2-493b-a8fa-6a80938476f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources/282671cb-77f2-493b-a8fa-6a80938476f5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/AudienceFactors/AudienceFactors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/AudienceFactors/AudienceFactors.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Customer/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Customer/Customer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/AudienceFactors/AudienceFactorsDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/AudienceFactors/AudienceFactorsDB.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/Models/Customer/CustomerDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Customer/CustomerDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Salary/Salary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Salary/Salary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Salary/SalaryDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Salary/SalaryDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Visit/VisitDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Visit/VisitDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/BaseDataTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/BaseDataTab.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Windows/TargetAudienceFactors.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Windows/TargetAudienceFactors.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Windows/TargetAudienceFactors.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Windows/TargetAudienceFactors.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +40,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2b6b16776cd54434a04affbc0feca44fece70d311fd4178ceca2a1b4330e4/VirtualizedCellInfoCollection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a1ad32abaee44480b66c2c1fcee9628cca92a4cd272eced5781564201180/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c95dcc58313213285a3bb76c2a3cedab84d293d1b4f5693c7b33d0f2648e5/Convert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbb9b76d07e4477885c165cd6116d8cca23898/70/edd2e587/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c93bddb949d457b9ba86cb9a951685af87880/37/745b0030/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbb9b76d07e4477885c165cd6116d8cca23898/62/3e9c77b7/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c93bddb949d457b9ba86cb9a951685af87880/91/b29fdc32/DataGridColumn.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbb9b76d07e4477885c165cd6116d8cca23898/a1/87f356bc/Number.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c93bddb949d457b9ba86cb9a951685af87880/c9/386875f2/VirtualizedCellInfoCollection.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,18 +60,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "MySQL",
-      "MariaDB"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34940413" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RunManager">
     <configuration name="Hotelmanagement" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -101,8 +107,12 @@
       <workItem from="1650885629861" duration="2144000" />
       <workItem from="1650892602519" duration="1728000" />
       <workItem from="1650975595995" duration="2174000" />
-      <workItem from="1651000755094" duration="299000" />
-      <workItem from="1651505015845" duration="7130000" />
+      <workItem from="1651066422984" duration="1506000" />
+      <workItem from="1651213468566" duration="4116000" />
+      <workItem from="1651575159935" duration="3497000" />
+      <workItem from="1651580508996" duration="2063000" />
+      <workItem from="1651670485802" duration="2158000" />
+      <workItem from="1651818233562" duration="3460000" />
     </task>
     <task id="LOCAL-00001" summary="Added the MainWindow Design and some Database basics">
       <created>1650892678105</created>
@@ -149,6 +159,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

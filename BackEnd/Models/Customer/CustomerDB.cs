@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows;
+using Hotelmanagement.BackEnd.ViewModels.CustomerPaymentmethods;
 using MySql.Data.MySqlClient;
 
 namespace Hotelmanagement.BackEnd.Models.Customer
@@ -36,7 +37,7 @@ namespace Hotelmanagement.BackEnd.Models.Customer
             return null;
         }
         
-        public static void CreateCustomer(Customer customer)
+        public static long CreateCustomer(Customer customer)
         {
             using var db = new Database.Database();
             try
@@ -51,18 +52,22 @@ namespace Hotelmanagement.BackEnd.Models.Customer
 
             try
             {
-                var cmd = new MySqlCommand($"INSERT INTO `kunden` (ID, Name, " +
+                var cmd = new MySqlCommand($"INSERT INTO `kunden` (ID, Name, Geburtstag," +
                                            $"Telefon, EMail, Strasse, Wohnort, Plz, Entfernt) VALUES ({customer.ID}, " +
-                                           $"'{customer.Name}', '{customer.Telephone}', '{customer.Email}', " +
+                                           $"'{customer.Name}', ?Geburtstag,'{customer.Telephone}', '{customer.Email}', " +
                                            $"'{customer.Street}', '{customer.Place}', " +
                                            $"'{customer.PostalCode}', false)", db.connection);
+                cmd.Parameters.Add("?Geburtstag", MySqlDbType.Date).Value = customer.Birthday;
                 cmd.ExecuteNonQuery();
+                return cmd.LastInsertedId;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Es konnte kein neuer Kunde erstellt werden\n" + "Error:" + ex.Message);
             }
-        }
+
+            return 0;
+        } 
 
         public static void DeleteCustomer(int id)
         {
@@ -86,6 +91,44 @@ namespace Hotelmanagement.BackEnd.Models.Customer
             {
                 MessageBox.Show("Der Kunde konnte nicht gelöscht werden\n" + "Error:" + ex.Message);
             }
+        }
+        
+        public static Customer GetCustomerById(int id)
+        {
+            using var db = new Database.Database();
+            
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
+            
+            try
+            {
+                var cmd = new MySqlCommand($"SELECT * FROM `kunden` WHERE ID={id}", db.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if(reader.Read())
+                {
+                    return new Customer(id, reader.GetString(1), reader.GetDateTime(2), 
+                        reader.GetString(3), reader.GetString(4), reader.GetString(5),
+                        reader.GetString(6), reader.GetString(7),
+                        reader.GetBoolean(8));
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Es ist ein Fehler aufgetreten");
+                return null;
+            }
+
+            return null;
         }
     }
 }

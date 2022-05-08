@@ -2,6 +2,7 @@
 using System.Windows;
 using Hotelmanagement.BackEnd.Database;
 using Hotelmanagement.BackEnd.Models.AudienceFactors;
+using Hotelmanagement.BackEnd.Models.Customer;
 using Hotelmanagement.BackEnd.Models.Salary;
 using MySql.Data.MySqlClient;
 
@@ -13,9 +14,15 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Windows
         {
             InitializeComponent();
             UpdateSalaryComboBox();
+            CustomerId.Text = id.ToString();
+            CustomerName.Text = GetCustomerName(id);
         }
 
-
+        private string GetCustomerName(int id)
+        {
+            Customer customer = CustomerDB.GetCustomerById(id);
+            return customer.Name;
+        }
         private void UpdateSalaryComboBox()
         {
             var dataset = SalaryDB.GetSalary();

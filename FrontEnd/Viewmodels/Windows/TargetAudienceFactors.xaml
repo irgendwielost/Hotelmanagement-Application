@@ -29,13 +29,13 @@
         </Grid.Resources>
 
         <!-- Customer Information -->
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="2" 
+        <TextBlock Grid.Row="0" Grid.Column="1"
                    x:Name="CustomerId"
                    VerticalAlignment="Top" 
                    HorizontalAlignment="Left" 
                    FontWeight="Bold" FontSize="24" Margin="350,-1,0,0" 
-                   Foreground="White"/>
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="[Leni Reichelt]" 
+                   Foreground="red"/>
+        <TextBlock Grid.Row="0" Grid.Column="1"
                    x:Name="CustomerName"
                    VerticalAlignment="Top" 
                    HorizontalAlignment="Left" 

@@ -2,36 +2,37 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace Hotelmanagement.BackEnd.Models.Salary;
-
-public class SalaryDB
+namespace Hotelmanagement.BackEnd.Models.Salary
 {
-    public static DataSet GetSalary()
+    public class SalaryDB
     {
-        using var db = new Database.Database();
+        public static DataSet GetSalary()
+        {
+            using var db = new Database.Database();
             
-        try
-        {
-            db.connection.Open();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"table opening error{e}");
-            throw;
-        }
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
             
-        try
-        {
+            try
+            {
                 
-            var adapter = new MySqlDataAdapter("select * from `einkommen`", db.connection);
-            DataSet dataSet = new();
-            adapter.Fill(dataSet, "einkommen");
-            return dataSet;
+                var adapter = new MySqlDataAdapter("select * from `einkommen`", db.connection);
+                DataSet dataSet = new();
+                adapter.Fill(dataSet, "einkommen");
+                return dataSet;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
         }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-        return null;
     }
 }
