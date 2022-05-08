@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hotelmanagement.BackEnd.Models.Customer;
+using Hotelmanagement.BackEnd.Models.RestaurantVisit;
+using Hotelmanagement.BackEnd.Models.RestaurantVisitHotelGuest;
 using Hotelmanagement.BackEnd.Models.Rooms;
+using Hotelmanagement.BackEnd.Models.Service;
 using Hotelmanagement.BackEnd.Models.TypesOfStay;
 using Hotelmanagement.BackEnd.Models.Visit;
 using Hotelmanagement.BackEnd.ViewModels.TypesOfStay;
+using Hotelmanagement.BackEnd.ViewModels.VisitService;
 using Hotelmanagement.FrontEnd.Viewmodels;
 using Hotelmanagement.FrontEnd.Viewmodels.Basedata;
+using Hotelmanagement.FrontEnd.Viewmodels.Windows;
 using MaterialDesignExtensions.Controls;
 namespace Hotelmanagement
 {
@@ -44,6 +50,51 @@ namespace Hotelmanagement
         private DepartmentTab _departmentTab = new DepartmentTab();
         private BaseDataTab _baseDataTab = new BaseDataTab();
         private BookingTab _bookingTab = new BookingTab();
+
+        private void BookVisit(int visitId)
+        {
+            //Data objects for the visit
+            Visit visit = VisitDB.GetVisitById(visitId); //Get visit by selected id
+            MessageBox.Show(visit.Room_ID.ToString());
+            VisitService visitService = VisitServiceDB.GetVisitServiceById(visitId); //Get visit service by selected visit id
+            Rooms room = RoomsDB.GetRoomById(visit.Room_ID); //Get room by selected visit id
+            RestaurantVisitHotelGuest restaurantVisitHotelGuest =
+                RestaurantVisitHotelGuestDB.GetRestaurantVisitByVisitId(visitId); //Get restaurant visit by selected visit id
+
+            double restaurantVisitPrice = 0;
+            double servicePrice = 0;
+            
+            //Get Data for the service
+            if (visitService != null)
+            {
+                int serviceId = visitService.ServiceOfferId; //Get service id from visit service
+                Service service  = ServiceDB.GetServiceById(serviceId); //Get service by service id
+                servicePrice = service.Price;
+            }
+            
+            //Get data for the restaurant
+            if (restaurantVisitHotelGuest != null)
+            {
+                int restaurantVisitId = restaurantVisitHotelGuest.RestaurantVisitID; //Get restaurant visit id from restaurant visit
+                //Get restaurant visit by restaurant visit id
+                RestaurantVisit restaurantVisit = RestaurantVisitDB.GetRestaurantVisitById(restaurantVisitId);
+                restaurantVisitPrice = restaurantVisit.TotalCosts;
+            }
+
+            double subtotal = visit.Total_Costs; //Get visit subtotal
+            
+            double total = subtotal + servicePrice + restaurantVisitPrice; //Get total price
+
+            VisitDB.UpdateVisit(new Visit(visitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 
+                visit.Room_ID, visit.Person_Amount, servicePrice, visit.Room_Costs, visit.Arrival, visit.Departure, 
+                total, false, "", restaurantVisitPrice, false, false));
+            
+            //Open the discount checkout window to check if the customer wants to apply a discount
+            DiscountCheckout discountCheckout = new DiscountCheckout(visitId);
+            discountCheckout.Show();
+            
+        }
+        
         
         //*****Tab Control*****
         
@@ -53,13 +104,6 @@ namespace Hotelmanagement
             ContentControl.Content = _transparent;
             ShowMain();
             Change_Tab(0);
-        }
-        
-        //Employee
-        private void Switch_Employee(object sender, RoutedEventArgs e)
-        {
-            ContentControl.Content = _employeeTab;
-            HideMain();
         }
         
         //Restaurant
@@ -130,36 +174,27 @@ namespace Hotelmanagement
             //Selected Item | id
             var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
             
-            if(id == null)
+            if(id == "")
             {
                 MessageBox.Show("Keine ID");
                 return;
             }
 
-            //Selected Item | name
-            var customerId = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
+            VisitId.Text = id;
 
-
-            //Selected Item | birthday
-            var roomId = (ListView.SelectedCells[2].Column.GetCellContent(item) as TextBlock)?.Text;
-
-            //Selected Item | email
-            var typeOfStayId = (ListView.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text;
-            var email = (ListView.SelectedCells[4].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-
-            //Selected Item | street
-            var street = (ListView.SelectedCells[5].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            var place = (ListView.SelectedCells[6].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            var postalcode = (ListView.SelectedCells[7].Column.GetCellContent(item) as TextBlock)?.Text;
         }
 
         private void CreateInvoice(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Neue Rechnung erstellt");
-            
+            var id = VisitId.Text;
+            if (id != "")
+            {
+                BookVisit(Int32.Parse(id));
+            }
+            else
+            {
+                MessageBox.Show("Es konnte kein Aufenthalt gefunden werden");
+            }
         }
     }
 }

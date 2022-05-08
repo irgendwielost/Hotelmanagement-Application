@@ -197,7 +197,8 @@
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
                     
-                    <TextBox Grid.Column="0" x:Name="Name"/>
+                    <TextBlock x:Name="CustomerId" Foreground="white"/>
+                    <TextBlock x:Name="VisitId" Foreground="white"/>
                     
                     <TextBox Grid.Column="1" x:Name="Searchbar"
                              HorizontalAlignment="Left"
@@ -209,15 +210,15 @@
                               Height="300"
                               CanUserAddRows="False"
                               AutoGenerateColumns="False"
-                              ItemsSource="{Binding Source=visits}"
+                              ItemsSource="{Binding }"
                               SelectionChanged="DataGrid_OnSelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                            <DataGridTextColumn Header="Kunde" Binding="{Binding CustomerName}"/>
-                            <DataGridTextColumn Header="Verpflegungsart" Binding="{Binding TypesOfStayName}"/>
-                            <DataGridTextColumn Header="Zimmer" Binding="{Binding RoomName}"/>
-                            <DataGridTextColumn Header="Ankunft" Binding="{Binding Ankunft}"/>
-                            <DataGridTextColumn Header="Abfahrt" Binding="{Binding Abfahrt}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="ID" Binding="{Binding ID}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="Kunde" Binding="{Binding CustomerName}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="Verpflegungsart" Binding="{Binding TypesOfStayName}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="Zimmer" Binding="{Binding RoomName}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="Ankunft" Binding="{Binding Ankunft}"/>
+                            <DataGridTextColumn IsReadOnly="True" Header="Abfahrt" Binding="{Binding Abfahrt}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Grid.Column="2" Content="Abrechnen"

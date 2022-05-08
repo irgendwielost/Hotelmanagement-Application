@@ -1,0 +1,110 @@
+﻿<Window x:Class="Hotelmanagement.FrontEnd.Viewmodels.Windows.DiscountCheckout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels.Windows"
+        xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="DiscountCheckout" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="" x:Name="HeaderText" Grid.ColumnSpan="2"/>
+        
+        <!-- Customer discounts -->
+        <Grid Row="1" Grid.Column="0">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <RadioButton Grid.Row="0"
+                         x:Name="CustomerDiscountRadioButton"
+                         HorizontalAlignment="Center"
+                         Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
+                         GroupName="GroupChoiceChip"
+                         Content="Kundenrabatt" />
+        
+            <ComboBox Grid.Row="1" 
+                      x:Name="customerDiscountsComboBox"
+                      HorizontalAlignment="Center"
+                      DisplayMemberPath="Bezeichnung" 
+                      SelectedValuePath="ID"
+                      Style="{StaticResource MaterialDesignFilledComboBox}"
+                      IsEnabled="{Binding Path=IsChecked, ElementName=CustomerDiscountRadioButton}"
+                      materialDesign:HintAssist.Hint="Kundenrabatte"
+                      Width="256"
+                      Height="50">
+            </ComboBox>
+        </Grid>
+        
+        <!-- Customer discounts -->
+        <Grid Row="1" Grid.Column="1">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <RadioButton Grid.Row="0"
+                         x:Name="SpecialOfferRadioButton"
+                         HorizontalAlignment="Center"
+                         Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
+                         GroupName="GroupChoiceChip"
+                         Content="Angebotsaktionen" />
+        
+            <ComboBox Grid.Row="1" 
+                      x:Name="SpecialOffersComboBox"
+                      HorizontalAlignment="Center"
+                      Style="{StaticResource MaterialDesignFilledComboBox}"
+                      IsEnabled="{Binding Path=IsChecked, ElementName=SpecialOfferRadioButton}"
+                      materialDesign:HintAssist.Hint="Angebotsaktionen"
+                      DisplayMemberPath="Bezeichnung" 
+                      SelectedValuePath="ID"
+                      Width="256"
+                      Height="50">
+            </ComboBox>
+        </Grid>
+        
+        <Grid Grid.Row="2" Grid.Column="0">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock x:Name="visitId" Foreground="white"/>
+            
+            <Button Grid.Row="0"
+                    Click="SaveButton_Click"
+                    Width="250"
+                    Content="Speichern" Margin="280,0,-130,0" Cursor="Hand"/>
+            <Button Grid.Row="1"
+                    Width="250"
+                    Content="Abbrechen"
+                    Margin="280,0,-130,0"/>
+        </Grid>
+    </Grid>
+</Window>

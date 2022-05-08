@@ -35,6 +35,71 @@ namespace Hotelmanagement.BackEnd.Models.Visit
             }
             return null;
         }
+
+        public static void UpdateVisit(Visit visit)
+        {
+            using var db = new Database.Database();
+
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+            }
+
+            try
+            {
+                var cmd = new MySqlCommand($"UPDATE `besuche` SET Servicekosten = {visit.Service_Costs}, " +
+                                           $"Zimmerkosten = {visit.Room_Costs}, Gesamtkosten = {visit.Total_Costs}, " +
+                                           $"SpeiseKosten = {visit.Dish_Costs}, Kunden_Rabatt = {visit.Customer_Discount}," +
+                                           $"Angebotsaktion = {visit.Special_Offer}, " +
+                                           $"Abgeschlossen = TRUE WHERE ID={visit.ID}", db.connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Der Besuch konnte nicht aktualisiert werden\n" + "Error: " +e.Message);
+            }
+        }
+        
+        public static Visit GetVisitById(int id)
+        {
+            using var db = new Database.Database();
+            
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+            }
+            
+            try
+            {
+                var cmd = new MySqlCommand($"SELECT * FROM `besuche` WHERE ID={id}", db.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if(reader.Read())
+                {
+                    return new Visit(id, reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3),
+                        reader.GetInt32(4), reader.GetDouble(5), reader.GetDouble(6),
+                        reader.GetDateTime(7), reader.GetDateTime(8), reader.GetDouble(9),
+                        reader.GetBoolean(10), reader.GetString(11), 
+                        reader.GetDouble(12), reader.GetBoolean(13),
+                        reader.GetBoolean(14));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Es konnte kein Besuch gefunden werden\n" + ex.Message);
+                return null;
+            }
+
+            return null;
+        }
         public static int GetRoomsInVisitsById(int id)
         {
             using var db = new Database.Database();
