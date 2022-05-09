@@ -89,7 +89,7 @@ public class InvoiceDB
         try
         {
             var cmd = new MySqlCommand($"UPDATE `rechnung` SET " +
-                                       $"Besuch_Gesamtkosten = {invoice.VisitTotalCosts}," +
+                                       $"Besuch_Gesamtkosten = {invoice.VisitTotalCosts.ToString().Replace(",",".")}," +
                                        $"Zimmer_Kosten = {invoice.Room_Costs.ToString().Replace(",",".")}," +
                                        $"ServiceKosten = {invoice.Service_Costs.ToString().Replace(",",".")}," +
                                        $"RestaurantKosten = {invoice.Restaurant_Costs.ToString().Replace(",",".")}," +
