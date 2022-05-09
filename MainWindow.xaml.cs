@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hotelmanagement.BackEnd.Models.Customer;
+using Hotelmanagement.BackEnd.Models.Invoice;
 using Hotelmanagement.BackEnd.Models.RestaurantVisit;
 using Hotelmanagement.BackEnd.Models.RestaurantVisitHotelGuest;
 using Hotelmanagement.BackEnd.Models.Rooms;
@@ -27,6 +28,7 @@ using Hotelmanagement.BackEnd.ViewModels.VisitService;
 using Hotelmanagement.FrontEnd.Viewmodels;
 using Hotelmanagement.FrontEnd.Viewmodels.Basedata;
 using Hotelmanagement.FrontEnd.Viewmodels.Windows;
+using Hotelmanagement.FrontEnd.Windows;
 using MaterialDesignExtensions.Controls;
 namespace Hotelmanagement
 {
@@ -50,6 +52,7 @@ namespace Hotelmanagement
         private DepartmentTab _departmentTab = new DepartmentTab();
         private BaseDataTab _baseDataTab = new BaseDataTab();
         private BookingTab _bookingTab = new BookingTab();
+        private InvoiceTab _invoiceTab = new InvoiceTab();
 
         private void BookVisit(int visitId)
         {
@@ -60,7 +63,7 @@ namespace Hotelmanagement
             Rooms room = RoomsDB.GetRoomById(visit.Room_ID); //Get room by selected visit id
             RestaurantVisitHotelGuest restaurantVisitHotelGuest =
                 RestaurantVisitHotelGuestDB.GetRestaurantVisitByVisitId(visitId); //Get restaurant visit by selected visit id
-
+            
             double restaurantVisitPrice = 0;
             double servicePrice = 0;
             
@@ -82,17 +85,24 @@ namespace Hotelmanagement
             }
 
             double subtotal = visit.Total_Costs; //Get visit subtotal
-            
-            double total = subtotal + servicePrice + restaurantVisitPrice; //Get total price
-
+            double tax = 0.19;
+            double gross = subtotal + servicePrice + restaurantVisitPrice; //Get total price
+            double taxSum = gross * tax;
+            double total = taxSum + subtotal;
+                           
             VisitDB.UpdateVisit(new Visit(visitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 
                 visit.Room_ID, visit.Person_Amount, servicePrice, visit.Room_Costs, visit.Arrival, visit.Departure, 
-                total, false, "", restaurantVisitPrice, false, false));
+                total, false, "", restaurantVisitPrice, false, false,
+                false));
+            
+            //Create invoice
+            var invoiceId = InvoiceDB.CreateInvoice(new Invoice(0, visitId, total, visit.Room_Costs, servicePrice,
+                restaurantVisitPrice, 0, 0, 1, taxSum, false, false));
             
             //Open the discount checkout window to check if the customer wants to apply a discount
-            DiscountCheckout discountCheckout = new DiscountCheckout(visitId);
+            DiscountCheckout discountCheckout = new DiscountCheckout(visitId, (int)invoiceId);
             discountCheckout.Show();
-            
+            UpdateVisitDatagrid();
         }
         
         
@@ -102,6 +112,7 @@ namespace Hotelmanagement
         private void Switch_Main(object sender, RoutedEventArgs e)
         {
             ContentControl.Content = _transparent;
+            UpdateVisitDatagrid();
             ShowMain();
             Change_Tab(0);
         }
@@ -145,6 +156,13 @@ namespace Hotelmanagement
             Change_Tab(1);
         }
 
+        //Invoice
+        private void Switch_Invoice(object sender, RoutedEventArgs e)
+        {
+            ContentControl.Content = _invoiceTab;
+            HideMain();
+            Change_Tab(6);
+        }
         private void HideMain()
         {
             Maincontrol.Visibility = Visibility.Hidden;
@@ -170,17 +188,21 @@ namespace Hotelmanagement
         {
             //Selected Item
             object item = ListView.SelectedItem;
-            
-            //Selected Item | id
-            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            if(id == "")
-            {
-                MessageBox.Show("Keine ID");
-                return;
-            }
 
-            VisitId.Text = id;
+            if (item != null)
+            {
+                //Selected Item | id
+                var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+                if(id == "")
+                {
+                    MessageBox.Show("Keine ID");
+                    return;
+                }
+
+                VisitId.Text = id;
+            }
+           
 
         }
 

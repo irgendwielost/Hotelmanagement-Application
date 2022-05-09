@@ -51,7 +51,7 @@ public class CustomerDiscountsDB
             
         try
         {
-            var cmd = new MySqlCommand($"SELECT * FROM `kunden-rabatte` WHERE ID={id}", db.connection);
+            var cmd = new MySqlCommand($"SELECT * FROM `kunden-rabatte` WHERE Kunde_ID={id}", db.connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             if(reader.Read())

@@ -6,7 +6,7 @@ namespace Hotelmanagement.BackEnd.Models.Visit
     {
         public Visit(int id, int customer_id, int visit_type_of_stay_id, int room_id,int person_amount, double service_costs,
             double room_costs, DateTime arrival, DateTime departure, double total_costs, bool complained, 
-            string complain_reason, double dish_costs, bool customer_discount, bool special_offer)
+            string complain_reason, double dish_costs, bool customer_discount, bool special_offer, bool completed)
         {
             ID = id;
             Customer_ID = customer_id;
@@ -41,5 +41,7 @@ namespace Hotelmanagement.BackEnd.Models.Visit
         public double Dish_Costs { get; set; }
         public bool Customer_Discount { get; set; }
         public bool Special_Offer { get; set; }
+        
+        public bool Completed { get; set; }
     }
 }

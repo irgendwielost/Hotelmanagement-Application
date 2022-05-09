@@ -72,7 +72,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
                     Place.Text = "";
                     PostalCode.Text = "";
                     Birthday.SelectedDate = null;
-                    UpdateDataGrid();
+                    
                 
                     if (customerID != 0)
                     {
@@ -81,6 +81,11 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
                         {
                             TargetAudienceFactors targetAudienceFactors = new TargetAudienceFactors(Int32.Parse(customerID.ToString()));
                             targetAudienceFactors.Show();
+                            UpdateDataGrid();
+                        }
+                        else
+                        {
+                            UpdateDataGrid();
                         }
                     }
                 }

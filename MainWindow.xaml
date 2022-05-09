@@ -66,6 +66,8 @@
                     <Button Click="Switch_Spa" Content="Spa"/>
                     <!-- Basedata -->
                     <Button Click="Switch_BaseData" Content="Stammdaten"/>
+                    <!-- Invoice -->
+                    <Button Click="Switch_Invoice" Content="Rechnungen"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1">
                     <!-- Tabcontrol -->
@@ -79,7 +81,8 @@
                             <TabItem Width="105" Height="20" VerticalAlignment="Center"/>
                             <TabItem Width="80" Height="20" VerticalAlignment="Center"/>
                             <TabItem Width="145" Height="20" VerticalAlignment="Center"/>
-                            <TabItem  Height="20" VerticalAlignment="Center" Width="370"/>
+                            <TabItem Width="145" Height="20" VerticalAlignment="Center"/>
+                            <TabItem  Height="20" VerticalAlignment="Center" Width="235"/>
                         </TabControl>
                     </materialDesign:Card>
                 </StackPanel>
@@ -188,18 +191,18 @@
 
                 </Grid>
                 <!-- Area to display currently booked rooms -->
-                
+
                 <Grid Grid.Row="3">
-                    
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <TextBlock x:Name="CustomerId" Foreground="white"/>
                     <TextBlock x:Name="VisitId" Foreground="white"/>
-                    
+
                     <TextBox Grid.Column="1" x:Name="Searchbar"
                              HorizontalAlignment="Left"
                              Height="25"/>

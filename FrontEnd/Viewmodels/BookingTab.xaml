@@ -88,53 +88,54 @@
             <TextBlock x:Name="RoomName" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
 
-        <Grid Grid.Row="0" Grid.Column="3" Height="240" VerticalAlignment="Bottom">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Padding="5" Margin="0,-30,-5,0" Grid.ColumnSpan="2">
+            <Grid Grid.Row="0" Grid.Column="3" Height="240" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Grid.Resources>
-                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
-                    <Setter Property="IsReadOnly" Value="True"/>
-                    <Setter Property="Width" Value="240"/>
-                    <Setter Property="Height" Value="50"/>
-                    <Setter Property="Padding" Value="10"/>
-                </Style>
-            </Grid.Resources>
-            
-            <TextBox x:Name="SizeTextBox" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Größe" />
-            <TextBox x:Name="AvailableTextBox" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Verfügbar" />
-            <TextBox x:Name="ExtraBedCapacityTextBox" Grid.Row="2" Grid.Column="0"
-                     Width="145" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Zustellbettkapazität" Margin="0,4,0,4" />
-            <TextBox x:Name="ExtraBedPriceTextBox" Grid.Row="2" Grid.Column="0" 
-                     Width="92" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Preis" Margin="150,5,0,5" />
-            <TextBox x:Name="RoomPriceTextBox" Grid.Row="3" Grid.Column="0" 
-                     Width="115" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Gesamtpreis" Margin="0,5,0,5" />
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                        <Setter Property="Width" Value="240"/>
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="Padding" Value="10"/>
+                    </Style>
+                </Grid.Resources>
+                
+                <TextBox x:Name="SizeTextBox" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Größe" />
+                <TextBox x:Name="AvailableTextBox" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Verfügbar" />
+                <TextBox x:Name="ExtraBedCapacityTextBox" Grid.Row="2" Grid.Column="0"
+                         Width="145" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Zustellbettkapazität" Margin="0,4,0,4" />
+                <TextBox x:Name="ExtraBedPriceTextBox" Grid.Row="2" Grid.Column="0" 
+                         Width="92" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Preis" Margin="150,5,0,5" />
+                <TextBox x:Name="RoomPriceTextBox" Grid.Row="3" Grid.Column="0" 
+                         Width="115" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Gesamtpreis" Margin="0,5,0,5" />
 
-            <TextBox
-                x:Name="DescriptionTextBox"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                VerticalAlignment="Top"
-                Height="110"
-                AcceptsReturn="True"
-                TextWrapping="Wrap"
-                IsReadOnly="True"
-                VerticalScrollBarVisibility="Auto"
-                materialDesign:HintAssist.Hint="Beschreibung" 
-                Margin="2,2,28,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1"/>
+                <TextBox
+                    x:Name="DescriptionTextBox"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    Height="110"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    IsReadOnly="True"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="Beschreibung" 
+                    Margin="2,2,28,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1"/>
 
-            <TextBox x:Name="SituationTextBox" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Lage" Width="212.5" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox x:Name="SituationTextBox" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Lage" Width="212.5" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-        </Grid>
-
+            </Grid>
+        </Border>
         <!-- Bottom-Left | Price and extra beds -->
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -192,9 +193,7 @@
                     <Setter Property="Height" Value="50"/>
                 </Style>
             </Grid.Resources>
-            <Button Grid.Row="0" Grid.Column="0" Click="CalculatePrice" Content="Preis berechnen"
-                    Margin="130,68,125,19" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="1" Grid.Column="0" Content="Buchen" Margin="130,11,125,75" Grid.ColumnSpan="2"/>
+            <Button Click="BookRoom" Grid.Row="1" Grid.Column="0" Content="Buchen" Margin="130,11,125,75" Grid.ColumnSpan="2"/>
 
         </Grid>
 

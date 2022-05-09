@@ -34,7 +34,7 @@
                    VerticalAlignment="Top" 
                    HorizontalAlignment="Left" 
                    FontWeight="Bold" FontSize="24" Margin="350,-1,0,0" 
-                   Foreground="red"/>
+                   Foreground="White"/>
         <TextBlock Grid.Row="0" Grid.Column="1"
                    x:Name="CustomerName"
                    VerticalAlignment="Top" 

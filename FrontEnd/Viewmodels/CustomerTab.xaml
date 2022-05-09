@@ -88,7 +88,6 @@
         <!-- Column 0 | Grid 3  -->
         <Button Click="AddCustomer" Grid.Column="0" Grid.Row="3" Margin="30,10,45,65">Speichern</Button>
         <Button Click="DeleteCustomer" Grid.Column="0" Grid.Row="3" Margin="30,70,45,5">Löschen</Button>
-        <Button Click="OpenTargetAudienceFactorsWindow" Grid.Column="2" Grid.Row="3" Margin="30,70,45,5">Zielgruppenfaktoren</Button>
 
         <!-- Datagrid -->
         <DataGrid 

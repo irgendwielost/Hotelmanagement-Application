@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using System.Windows;
 using MySql.Data.MySqlClient;
 
@@ -51,11 +52,15 @@ namespace Hotelmanagement.BackEnd.Models.Visit
 
             try
             {
-                var cmd = new MySqlCommand($"UPDATE `besuche` SET Servicekosten = {visit.Service_Costs}, " +
-                                           $"Zimmerkosten = {visit.Room_Costs}, Gesamtkosten = {visit.Total_Costs}, " +
-                                           $"SpeiseKosten = {visit.Dish_Costs}, Kunden_Rabatt = {visit.Customer_Discount}," +
+                var cmd = new MySqlCommand($"UPDATE `besuche` SET " +
+                                           $"Servicekosten = {visit.Service_Costs}, " +
+                                           $"Zimmerkosten = {visit.Room_Costs}, " +
+                                           $"Gesamtkosten = {visit.Total_Costs.ToString().Replace(",",".")}, " +
+                                           $"SpeiseKosten = {visit.Dish_Costs}, " +
+                                           $"Kunden_Rabatt = {visit.Customer_Discount}," +
                                            $"Angebotsaktion = {visit.Special_Offer}, " +
-                                           $"Abgeschlossen = TRUE WHERE ID={visit.ID}", db.connection);
+                                           $"Abgeschlossen = true WHERE ID={visit.ID}", 
+                    db.connection);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -89,7 +94,7 @@ namespace Hotelmanagement.BackEnd.Models.Visit
                         reader.GetDateTime(7), reader.GetDateTime(8), reader.GetDouble(9),
                         reader.GetBoolean(10), reader.GetString(11), 
                         reader.GetDouble(12), reader.GetBoolean(13),
-                        reader.GetBoolean(14));
+                        reader.GetBoolean(14),reader.GetBoolean(15));
                 }
             }
             catch (Exception ex)
@@ -130,5 +135,44 @@ namespace Hotelmanagement.BackEnd.Models.Visit
 
             return 0;
         }
+        
+        public static long AddVisit(Visit visit)
+        {
+            using var db = new Database.Database();
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
+
+            try
+            {
+                var cmd = new MySqlCommand($"INSERT INTO `besuche` (ID, Kunde_ID, Besuchsart_ID, Zimmer_ID," +
+                                           $" Personenanzahl, Servicekosten, Zimmerkosten, Ankunft, Abfahrt," +
+                                           $" Gesamtkosten, Reklamiert, Reklamationsgrund, SpeiseKosten," +
+                                           $" Kunden_Rabatt, Angebotsaktion, Abgeschlossen) VALUES  ({visit.ID}, " +
+                                           $"{visit.Customer_ID}, {visit.Visit_Type_Of_Stay_ID},{visit.Room_ID}, {visit.Person_Amount}, " +
+                                           $"{visit.Service_Costs}, {visit.Room_Costs}, @Arrival, " +
+                                           $"@Departure, {visit.Total_Costs.ToString().Replace(",",".")}, " +
+                                           $"{visit.Complained}, " +
+                                           $"'{visit.Complain_Reason}', {visit.Dish_Costs}, {visit.Customer_Discount}," +
+                                           $"{visit.Special_Offer}, false)",db.connection);
+                cmd.Parameters.Add("@Arrival", MySqlDbType.Date).Value = visit.Arrival;
+                cmd.Parameters.Add("@Departure", MySqlDbType.Date).Value = visit.Departure;
+                cmd.ExecuteNonQuery();
+                return cmd.LastInsertedId;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Es konnte kein Besuch gebucht werden\n" + "Error: " + ex.Message);
+            }
+
+            return 0;
+        }
+        
     }
 }

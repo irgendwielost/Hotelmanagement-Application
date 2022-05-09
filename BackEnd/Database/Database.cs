@@ -28,9 +28,7 @@ namespace Hotelmanagement.BackEnd.Database
             }
             catch (Exception e)
             {
-                Console.WriteLine("Es konnte keine Verbindung zu der Datenbank hergestellt werden:");
-                MessageBox.Show("Es konnte keine Verbindung zu der Datenbank hergestellt werden!");
-                Debug.WriteLine(e);
+                MessageBox.Show("Es konnte keine Verbindung zum Internet hergestellt werden!");
                 throw;
             }
 

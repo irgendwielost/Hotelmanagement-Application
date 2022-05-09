@@ -5,8 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="545" d:DesignWidth="1000">
     <Grid>
-        <TextBlock>Spa</TextBlock>
+        <TextBlock 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            FontWeight="Bold"
+            FontSize="20"
+            Text="404 Die Spa Seite wurde noch nicht erstellt"/>
     </Grid>
 </UserControl>

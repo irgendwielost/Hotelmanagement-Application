@@ -54,10 +54,10 @@ namespace Hotelmanagement.BackEnd.Models.Customer
             {
                 var cmd = new MySqlCommand($"INSERT INTO `kunden` (ID, Name, Geburtstag," +
                                            $"Telefon, EMail, Strasse, Wohnort, Plz, Entfernt) VALUES ({customer.ID}, " +
-                                           $"'{customer.Name}', ?Geburtstag,'{customer.Telephone}', '{customer.Email}', " +
+                                           $"'{customer.Name}', @Geburtstag,'{customer.Telephone}', '{customer.Email}', " +
                                            $"'{customer.Street}', '{customer.Place}', " +
                                            $"'{customer.PostalCode}', false)", db.connection);
-                cmd.Parameters.Add("?Geburtstag", MySqlDbType.Date).Value = customer.Birthday;
+                cmd.Parameters.Add("@Geburtstag", MySqlDbType.Date).Value = customer.Birthday;
                 cmd.ExecuteNonQuery();
                 return cmd.LastInsertedId;
             }
