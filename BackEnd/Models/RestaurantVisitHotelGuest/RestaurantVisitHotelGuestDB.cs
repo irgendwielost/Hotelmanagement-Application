@@ -28,7 +28,7 @@ public class RestaurantVisitHotelGuestDB
             if(reader.Read())
             {
                 return new RestaurantVisitHotelGuest(reader.GetInt32(0), reader.GetInt32(1), 
-                    reader.GetDateTime(3), id);
+                    reader.GetDateTime(2), id);
             }
                 
         }

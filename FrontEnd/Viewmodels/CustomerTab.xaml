@@ -61,6 +61,7 @@
 
         <!-- Telephone -->
         <TextBox x:Name="Tel" Grid.Column="0" Grid.Row="1" 
+                 PreviewTextInput="NumberValidationTextBox"
                  materialDesign:HintAssist.Hint="Telefonnummer"
                  VerticalAlignment="Bottom" 
                  Margin="5, 0, 0, 25"/>
@@ -81,6 +82,7 @@
         <!-- Postalcode -->
         <TextBox x:Name="PostalCode" Grid.Column="0" Grid.Row="2" 
                  materialDesign:HintAssist.Hint="Postleitzahl"
+                 PreviewTextInput="NumberValidationTextBox"
                  Width="100" 
                  HorizontalAlignment="Right"
                  Margin="0,56,0,0"/>

@@ -76,12 +76,6 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private int CalculateAvailableRooms(int id)
-        {
-            return VisitDB.GetRoomsInVisitsById(id);
-            
-        }
-        
         private void RoomComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var id = RoomComboBox.SelectedValue;
@@ -146,55 +140,79 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
                     TotalPriceTextBlock.Text = totalPrice.ToString(CultureInfo.InvariantCulture);
                    
                 }
-                else
-                {
-                    MessageBox.Show("Bitte geben Sie ein Start- und Enddatum ein.");
-                }
-
-                
-                
-
             }
             catch (Exception exception)
             {
                 MessageBox.Show("Es sind nicht alle Daten richtig eingegeben.\n" + exception.Message);
-                Console.WriteLine(exception);
             }
         }
-        
-        private void CalculatePrice_Click(object sender, RoutedEventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            CalculateAvailableRooms(1);
-        }
-
         private void BookRoom(object sender, RoutedEventArgs e)
         {
             CalculatePrice();
-            //get the values of fields
-            int roomId = (int)RoomComboBox.SelectedValue;
-            var customerId = (int)CustomerComboBox.SelectedValue;
-            var arrival = BeginDatePicker.SelectedDate.Value;
-            var departure = EndDatePicker.SelectedDate.Value;
+            //Set ids to 0 to avoid null reference exception
+            int roomId = 0;
+            int customerId = 0;
+            int typeOfStay = 0;
+            
+            //Check if a room is selected
+            if(RoomComboBox.SelectedValue != null)
+            {
+                roomId = (int)RoomComboBox.SelectedValue;
+            }
+            else
+            {
+                MessageBox.Show("Bitte ein Zimmer auswählen");
+            }
+            
+            //Check if a customer is selected
+            if (CustomerComboBox.SelectedValue != null)
+            {
+                customerId = (int)CustomerComboBox.SelectedValue;
+            }
+            else
+            {
+                MessageBox.Show("Bitte einen Kunden auswählen");
+            }
+            
+            //Check if a type of stay is selected
+            if (TypeOfStayComboBox.SelectedValue != null)
+            {
+                typeOfStay = (int) TypeOfStayComboBox.SelectedValue;
+            }
+            else
+            {
+                MessageBox.Show("Bitte eine Aufenthaltsart auswählen");
+            }
+            
+            DateTime arrival = new DateTime(0);
+            DateTime departure = new DateTime(0);
+            
+            // Check if dates are picked and get the values
+            if (BeginDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
+            {
+                arrival = BeginDatePicker.SelectedDate!.Value;
+                departure = EndDatePicker.SelectedDate!.Value;
+            }
+            
             var personAmount = PersonAmount.Text;
-            var typeOfStay = (int)TypeOfStayComboBox.SelectedValue;
             var extraBedAmount = 0;
+            double roomPrice = 0;
             bool extraBed = false;
             
             
             //Calculation for the room costs
-            Rooms room = RoomsDB.GetRoomById(roomId);
-            double roomBasePrice = room.BasePrice;
-            
-            var numberOfDays = (departure - arrival).TotalDays;
+            if (roomId != 0)
+            {
+                Rooms room = RoomsDB.GetRoomById(roomId);
+                double roomBasePrice = room.BasePrice;    
+                
+                var numberOfDays = (departure - arrival).TotalDays;
                     
-            double roomPrice = roomBasePrice * numberOfDays;
+                roomPrice = roomBasePrice * numberOfDays;
+            }
             
-            if (ExtraBedCheckBox.IsChecked == true)
+            
+            if (ExtraBedCheckBox.IsChecked == true && ExtraBedTextBox.Text != "")
             {
                 extraBedAmount = Int32.Parse(ExtraBedTextBox.Text);
                 extraBed = true;
@@ -203,13 +221,14 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             var selectedArrival = arrival.ToShortDateString();
             var selectedDeparture = departure.ToShortDateString();
             
-            if (TotalPriceTextBlock.Text != "0" && personAmount != "")
+            if (TotalPriceTextBlock.Text != "0" && personAmount != "" && customerId != 0 && roomId != 0 
+                && typeOfStay != 0 && BeginDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
             {
                 var totalPrice = TotalPriceTextBlock.Text;
                 var visitId = VisitDB.AddVisit(new Visit(0, customerId, typeOfStay, 
                     roomId, Int32.Parse(personAmount), 0, roomPrice, 
                     DateTime.Parse(selectedArrival), DateTime.Parse(selectedDeparture), Double.Parse(totalPrice),
-                    false, "", 0, false, false,false));
+                    false, "", 0, false, false,false, 0));
                 VisitRoomDB.AddVisitroom(new VisitRoom((int)visitId, roomId, extraBed, extraBedAmount));
                 MessageBox.Show("Zimmer wurde gebucht");
                 ClearFields();

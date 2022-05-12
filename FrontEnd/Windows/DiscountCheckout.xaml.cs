@@ -82,14 +82,12 @@ namespace Hotelmanagement.FrontEnd.Windows
                         customerDiscountValue = customerDiscounts.DiscountValue;
                         double discount = subtotal * customerDiscountValue; //calculate the discount €
                         double totalcosts = subtotal - discount; //calculate the total costs minus the discount
-                    
-                        MessageBox.Show("Total: " + totalcosts + "\n Discount: " + discount);
-                    
+                        
                         //Update the visit entry for the costs and discount
                         VisitDB.UpdateVisit(new Visit(VisitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 
                             visit.Room_ID, visit.Person_Amount, visit.Service_Costs, visit.Room_Costs, visit.Arrival, 
                             visit.Departure, totalcosts, visit.Complained, visit.Complain_Reason, visit.Dish_Costs, 
-                            true, false, true));
+                            true, false, true, RatingBar.Value));
                     
                         //Add the discount to the visit discount table
                         VisitDiscountDB.AddVisitDiscount(new VisitDiscount(VisitId, 
@@ -130,7 +128,7 @@ namespace Hotelmanagement.FrontEnd.Windows
                     VisitDB.UpdateVisit(new Visit(VisitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 
                         visit.Room_ID, visit.Person_Amount, visit.Service_Costs, visit.Room_Costs, visit.Arrival, 
                         visit.Departure, totalcosts, visit.Complained, visit.Complain_Reason, visit.Dish_Costs, 
-                        false, true, true));
+                        false, true, true, RatingBar.Value));
                 
                     //Add the discount to the visit discount table
                     VisitDiscountDB.AddVisitDiscount(new VisitDiscount(VisitId, 

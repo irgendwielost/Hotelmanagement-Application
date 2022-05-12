@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Background="white"
              d:DesignHeight="545" d:DesignWidth="1000">
@@ -40,14 +41,21 @@
         <!-- Hidden textblock for the room name -->
         <TextBlock x:Name="hiddenRoomName" Foreground="white" Margin="130,56,150,35" Grid.Column="1" Grid.Row="3"/>
         <TextBlock x:Name="hiddenInvoiceId" Foreground="white" Margin="250,26,30,70" Grid.Column="1" Grid.Row="3"/>
-        
+
         <!-- Customer paymentmethod combobox -->
         <ComboBox x:Name="PaymentmethodsComboBox" 
                   Grid.Row="2" Grid.Column="0"
                   SelectedValuePath="ID"
                   DisplayMemberPath="PayMethName" Width="308" HorizontalAlignment="Left"/>
-        <!-- button to mark invoice as paid -->
-        <Button Click="ShowInvoiceDisplay" Grid.Row="3" Grid.Column="0" Content="Rechnung erstellen" />
+        <!-- Refresh button -->
+        <Button Grid.Row="2" Grid.Column="0" Click="Refresh"
+             Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+             ToolTip="MaterialDesignFloatingActionMiniDarkButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,2,0,0">
+            <materialDesign:PackIcon
+                Kind="Refresh"/>
+        </Button>
+        <!-- button to mark invoice as paid and display the information -->
+        <Button Click="ShowInvoiceDisplay" Grid.Row="3" Grid.Column="0" Content="Rechnung erstellen" Margin="0,52,295,52" />
 
         <!-- Area for the invoice -->
         <Border Grid.Row="0" Grid.Column="1" Grid.RowSpan="4">
@@ -66,23 +74,26 @@
                 </Grid.RowDefinitions>
 
                 <!-- Headline -->
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-                          x:Name="Headline"
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="Headline"
                           Text="Rechnung"
                           HorizontalAlignment="Center"
                           FontSize="20"
                           FontWeight="Bold"/>
                 <!-- Room -->
-                <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Width="195">
                     <!-- Room header -->
-                    <TextBlock 
-                       x:Name="RoomHeader"
-                       Text="Zimmer"
-                       FontWeight="Bold" TextAlignment="Center"/>
-                    <!-- Room text -->
-                    <TextBlock
-                       x:Name="RoomText"
-                       Text=""/>
+                    <TextBlock x:Name="RoomHeader"
+                               Text="Zimmer"
+                               FontWeight="Bold" TextAlignment="Left"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Room text -->
+                        <TextBlock x:Name="RoomText"
+                                   Text=""/>
+                        <!-- Room Price -->
+                        <TextBlock x:Name="RoomPriceText"
+                                   Text="0" Width="135" TextAlignment="Right" HorizontalAlignment="Right"/>
+                    </StackPanel>
                 </StackPanel>
 
                 <!-- Dates -->
@@ -105,31 +116,49 @@
                 </StackPanel>
 
                 <!-- Services -->
-                <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="9,2,0,134" Grid.RowSpan="2">
+                <StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="0,135,0,88" Grid.RowSpan="2" Width="190">
                     <!-- Dates header -->
                     <TextBlock x:Name="ServicesHeader"
                               Text="Services"
                               FontWeight="Bold" 
-                              HorizontalAlignment="Center" 
-                              VerticalAlignment="Top"/>
+                              HorizontalAlignment="Center" Width="190"/>
                     <TextBlock x:Name="ServicePriceText"
-                              Text=""
-                              HorizontalAlignment="Center"/>
+                              Text="0"
+                              HorizontalAlignment="Center" Width="190"/>
                 </StackPanel>
 
                 <!-- Restaurant -->
-                <StackPanel Grid.Row="1" Grid.Column="0" Margin="-65,42,65,94" Grid.RowSpan="2">
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,64,0,31">
                     <!-- Restaurant header -->
                     <TextBlock x:Name="RestaurantHeader"
                               Text="Restaurant"
                               FontWeight="Bold" 
-                              HorizontalAlignment="Center" 
+                              HorizontalAlignment="Left" 
                               VerticalAlignment="Top"/>
                     <TextBlock x:Name="RestaurantPriceText"
-                              Text=""
-                              HorizontalAlignment="Center"/>
+                              Text="0"
+                              HorizontalAlignment="Center" Width="189"/>
                 </StackPanel>
 
+                <!-- Type of stay -->
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <!-- Type of stay header -->
+                    <TextBlock x:Name="TypeOfStayHeader"
+                               Text="Aufenthaltsart"
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Top"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="TypeOfStayNameText"
+                                   Text=""
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="TypeOfStayPriceText"
+                                   Text="0" 
+                                   Width="192" 
+                                   TextAlignment="Right"/>
+                    </StackPanel>
+
+                </StackPanel>
                 <!-- Costs -->
                 <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left">
                     <!-- Costs header -->
@@ -148,6 +177,7 @@
                                   Width="140" 
                                   TextAlignment="Right"/>
                     </StackPanel>
+
 
                     <!-- Taxes -->
                     <StackPanel Orientation="Horizontal">

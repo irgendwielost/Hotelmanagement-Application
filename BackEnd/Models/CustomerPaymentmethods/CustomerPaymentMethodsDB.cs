@@ -2,7 +2,7 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace Hotelmanagement.BackEnd.ViewModels.CustomerPaymentmethods;
+namespace Hotelmanagement.BackEnd.Models.CustomerPaymentmethods;
 
 public class CustomerPaymentMethodsDB
 {

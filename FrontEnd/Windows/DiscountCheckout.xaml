@@ -107,8 +107,8 @@
         
         <Grid Grid.Row="2" Grid.Column="1">
             <materialDesign:RatingBar
-                x:Name="BasicRatingBar"
-                Value="3"
+                x:Name="RatingBar"
+                Value="0"
                 ValueChanged="BasicRatingBar_ValueChanged" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
     </Grid>

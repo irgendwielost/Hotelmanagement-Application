@@ -2,10 +2,13 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using Hotelmanagement.BackEnd.Models.CustomerPaymentmethods;
 using Hotelmanagement.BackEnd.Models.Invoice;
 using Hotelmanagement.BackEnd.Models.Tax;
+using Hotelmanagement.BackEnd.Models.TypesOfStay;
 using Hotelmanagement.BackEnd.Models.Visit;
 using Hotelmanagement.BackEnd.ViewModels.CustomerPaymentmethods;
+using Hotelmanagement.BackEnd.ViewModels.TypesOfStay;
 
 namespace Hotelmanagement.FrontEnd.Viewmodels
 {
@@ -37,24 +40,26 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
         {
             object item = InvoiceDataGrid.SelectedItem;
             
-            var invoiceId = (InvoiceDataGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
-            var visitId = (InvoiceDataGrid.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
-            var roomName = (InvoiceDataGrid.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text;
-
-            if (visitId == "")
+            if (item != null)
             {
-                MessageBox.Show("Es existiert kein Besuch zu dieser Rechnung");
-                return;
-            }
+                var invoiceId = (InvoiceDataGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+                var visitId = (InvoiceDataGrid.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
+                var roomName = (InvoiceDataGrid.SelectedCells[3].Column.GetCellContent(item) as TextBlock)?.Text; 
+                
+                if (visitId == "")
+                {
+                    MessageBox.Show("Es existiert kein Besuch zu dieser Rechnung");
+                    return;
+                }
 
-            if (visitId != null)
-            {
-                Visit visit = VisitDB.GetVisitById(Int32.Parse(visitId));
-                hiddenInvoiceId.Text = invoiceId;
-                hiddenRoomName.Text = roomName;
-                UpdateComboBox(visit.Customer_ID);
+                if (visitId != null)
+                {
+                    Visit visit = VisitDB.GetVisitById(Int32.Parse(visitId));
+                    hiddenInvoiceId.Text = invoiceId;
+                    hiddenRoomName.Text = roomName;
+                    UpdateComboBox(visit.Customer_ID);
+                }
             }
-            //Visit visit = VisitDB.GetVisitById(Int32.Parse(visitId));
         }
 
         private void ShowInvoiceDisplay(object sender, RoutedEventArgs e)
@@ -68,18 +73,21 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
 
         private void GenerateInvoice(int invoiceId)
         {
-            //TODO: write method to get every information to service and restaurant? Maybe Not?
-            
             Invoice invoice = InvoiceDB.GetInvoiceById(invoiceId);                                      // Invoice object
             int visitId = invoice.VisitID;                                                              // ID of the visit
             Visit visit = VisitDB.GetVisitById(visitId);                                                // Visit object
+            TypesOfStay typesOfStay = TypesOfStayDB.GetTypeOfStayByID(visit.Visit_Type_Of_Stay_ID);     // Type of stay object
             
             RoomText.Text = hiddenRoomName.Text;                                                        // Room name
-            double roomCosts = invoice.Room_Costs;                                                      // Costs for the room
+            double roomCosts = Math.Round(invoice.Room_Costs, 2);                                       // Costs for the room
+            RoomPriceText.Text = roomCosts.ToString(CultureInfo.InvariantCulture) + "€";                // Room costs
             double serviceCosts = Math.Round(invoice.Service_Costs, 2);
             ServicePriceText.Text = serviceCosts.ToString(CultureInfo.InvariantCulture) + "€";          // Costs for the services 
             double restaurantCosts = Math.Round(invoice.Restaurant_Costs, 2);
             RestaurantPriceText.Text = restaurantCosts.ToString(CultureInfo.InvariantCulture) + "€";    // Costs for restaurant
+
+            string typeOfStayName = typesOfStay.Bezeichnung;                                            // Type of stay name
+            double typeOfStayCosts = Math.Round(typesOfStay.Price_change, 2);                           // Costs for the type of stay
             
             //Get the discount
             double customerDiscount = invoice.Customer_Discount_Value;                                  // Value of the customer discount
@@ -99,6 +107,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             }
             else
             {
+                DiscountHeader.Text = "Rabatt";
                 discount = 0;
             }
             
@@ -118,11 +127,21 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             total = Math.Round(total, 2);
             TotalText.Text = total.ToString(CultureInfo.InvariantCulture) + "€";                 // Total costs text
 
+            TypeOfStayNameText.Text = typeOfStayName;                                            // Type of stay name
+            TypeOfStayPriceText.Text = typeOfStayCosts.ToString(CultureInfo.InvariantCulture) + "€"; // Type of stay price text
+            
             string arrival = visit.Arrival.ToShortDateString();
             string departure = visit.Departure.ToShortDateString();
             
             ArrivalText.Text = arrival;                                                         // Arrival text
             DepartureText.Text = departure;                                                     // Departure text
+            InvoiceDB.BookInvoice(invoiceId);                                                   // complete the invoice
+            UpdateDataGrid();
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            UpdateDataGrid();
         }
     }
 }

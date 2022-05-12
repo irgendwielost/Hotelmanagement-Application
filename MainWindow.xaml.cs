@@ -92,7 +92,7 @@ namespace Hotelmanagement
             VisitDB.UpdateVisit(new Visit(visitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 
                 visit.Room_ID, visit.Person_Amount, servicePrice, visit.Room_Costs, visit.Arrival, visit.Departure, 
                 total, false, "", restaurantVisitPrice, false, false,
-                false));
+                false, 0));
             
             //Create invoice
             var invoiceId = InvoiceDB.CreateInvoice(new Invoice(0, visitId, total, 

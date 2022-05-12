@@ -2,8 +2,10 @@
 using System.ComponentModel;
 using System.Data;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Hotelmanagement.BackEnd.Models.Customer;
 using Hotelmanagement.BackEnd.Models.Department;
 using Hotelmanagement.BackEnd.ViewModels.Department;
@@ -38,13 +40,6 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
                 e.Cancel = true;
             }
         }
-
-        private void OpenTargetAudienceFactorsWindow(object sender, RoutedEventArgs e)
-        {
-            TargetAudienceFactors targetAudienceFactors = new TargetAudienceFactors(Int32.Parse(1.ToString()));
-            targetAudienceFactors.Show();
-        }
-
         private void AddCustomer(object sender, RoutedEventArgs e)
         {
             var id = "0";
@@ -167,6 +162,13 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             Street.Text = street;
             Place.Text = place;
             PostalCode.Text = postalcode;
+        }
+        
+        //Make sure that the input is a number
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

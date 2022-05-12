@@ -59,7 +59,7 @@ namespace Hotelmanagement.BackEnd.Models.Visit
                                            $"SpeiseKosten = {visit.Dish_Costs}, " +
                                            $"Kunden_Rabatt = {visit.Customer_Discount}," +
                                            $"Angebotsaktion = {visit.Special_Offer}, " +
-                                           $"Abgeschlossen = true WHERE ID={visit.ID}", 
+                                           $"Abgeschlossen = true, Bewertung = {visit.Rating} WHERE ID={visit.ID}", 
                     db.connection);
                 cmd.ExecuteNonQuery();
             }
@@ -94,7 +94,7 @@ namespace Hotelmanagement.BackEnd.Models.Visit
                         reader.GetDateTime(7), reader.GetDateTime(8), reader.GetDouble(9),
                         reader.GetBoolean(10), reader.GetString(11), 
                         reader.GetDouble(12), reader.GetBoolean(13),
-                        reader.GetBoolean(14),reader.GetBoolean(15));
+                        reader.GetBoolean(14),reader.GetBoolean(15), reader.GetInt32(16));
                 }
             }
             catch (Exception ex)
@@ -154,13 +154,13 @@ namespace Hotelmanagement.BackEnd.Models.Visit
                 var cmd = new MySqlCommand($"INSERT INTO `besuche` (ID, Kunde_ID, Besuchsart_ID, Zimmer_ID," +
                                            $" Personenanzahl, Servicekosten, Zimmerkosten, Ankunft, Abfahrt," +
                                            $" Gesamtkosten, Reklamiert, Reklamationsgrund, SpeiseKosten," +
-                                           $" Kunden_Rabatt, Angebotsaktion, Abgeschlossen) VALUES  ({visit.ID}, " +
+                                           $" Kunden_Rabatt, Angebotsaktion, Abgeschlossen, Bewertung) VALUES  ({visit.ID}, " +
                                            $"{visit.Customer_ID}, {visit.Visit_Type_Of_Stay_ID},{visit.Room_ID}, {visit.Person_Amount}, " +
                                            $"{visit.Service_Costs}, {visit.Room_Costs}, @Arrival, " +
-                                           $"@Departure, {visit.Total_Costs.ToString().Replace(",",".")}, " +
+                                           $"@Departure, {visit.Total_Costs.ToString(CultureInfo.InvariantCulture).Replace(",",".")}, " +
                                            $"{visit.Complained}, " +
                                            $"'{visit.Complain_Reason}', {visit.Dish_Costs}, {visit.Customer_Discount}," +
-                                           $"{visit.Special_Offer}, false)",db.connection);
+                                           $"{visit.Special_Offer}, false, 0)",db.connection);
                 cmd.Parameters.Add("@Arrival", MySqlDbType.Date).Value = visit.Arrival;
                 cmd.Parameters.Add("@Departure", MySqlDbType.Date).Value = visit.Departure;
                 cmd.ExecuteNonQuery();

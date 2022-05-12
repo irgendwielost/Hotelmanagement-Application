@@ -4,9 +4,11 @@ namespace Hotelmanagement.BackEnd.Models.Visit
 {
     public class Visit
     {
-        public Visit(int id, int customer_id, int visit_type_of_stay_id, int room_id,int person_amount, double service_costs,
-            double room_costs, DateTime arrival, DateTime departure, double total_costs, bool complained, 
-            string complain_reason, double dish_costs, bool customer_discount, bool special_offer, bool completed)
+        public Visit(int id, int customer_id, int visit_type_of_stay_id, int room_id, int person_amount,
+            double service_costs,
+            double room_costs, DateTime arrival, DateTime departure, double total_costs, bool complained,
+            string complain_reason, double dish_costs, bool customer_discount, bool special_offer, bool completed,
+            int rating)
         {
             ID = id;
             Customer_ID = customer_id;
@@ -23,6 +25,8 @@ namespace Hotelmanagement.BackEnd.Models.Visit
             Dish_Costs = dish_costs;
             Customer_Discount = customer_discount;
             Special_Offer = special_offer;
+            Completed = completed;
+            Rating = rating;
         }
     
         public int ID { get; set; }
@@ -41,7 +45,9 @@ namespace Hotelmanagement.BackEnd.Models.Visit
         public double Dish_Costs { get; set; }
         public bool Customer_Discount { get; set; }
         public bool Special_Offer { get; set; }
-        
         public bool Completed { get; set; }
+        public int Rating { get; set; }
+        
+        
     }
 }

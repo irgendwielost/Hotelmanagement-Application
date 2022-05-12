@@ -169,7 +169,7 @@ public class InvoiceDB
                                                "z.Bezeichnung as RoomName from `rechnung` " +
                                                "join besuche b on rechnung.Besuch_ID = b.ID " +
                                                "join kunden k on b.Kunde_ID = k.ID " +
-                                               "join zimmer z on rechnung.Zimmer_ID = z.ID ", db.connection);
+                                               "join zimmer z on rechnung.Zimmer_ID = z.ID WHERE Bezahlt = 0", db.connection);
             DataSet dataSet = new();
             adapter.Fill(dataSet, "rechnung");
             return dataSet;
@@ -177,6 +177,30 @@ public class InvoiceDB
         catch
         {
             return null;
+        }
+    }
+
+    public static void BookInvoice(int id)
+    {
+        using var db = new Database();
+
+        try
+        {
+            db.connection.Open();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"table opening error{e}");
+        }
+
+        try
+        {
+            var cmd = new MySqlCommand($"UPDATE `rechnung` SET Bezahlt = 1 WHERE ID = {id}", db.connection);
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show("Die Rechnung konnte nicht abgeschlossen werden\n" + "Error: " +e.Message);
         }
     }
 }

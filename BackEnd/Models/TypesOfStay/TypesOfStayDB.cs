@@ -65,7 +65,6 @@ namespace Hotelmanagement.BackEnd.Models.TypesOfStay
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Es ist ein Fehler aufgetreten");
                 return null;
             }
 
