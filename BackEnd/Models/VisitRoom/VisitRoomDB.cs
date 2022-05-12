@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Windows;
+using Hotelmanagement.BackEnd.Database;
+using Hotelmanagement.BackEnd.ViewModels.VisitRoom;
 using MySql.Data.MySqlClient;
-
-namespace Hotelmanagement.BackEnd.ViewModels.VisitRoom;
 
 public class VisitRoomDB
 {
     public static void AddVisitroom(VisitRoom visitRoom)
     {
-        using var db = new Database.Database();
+        using var db = new Database();
         try
         {
             db.connection.Open();

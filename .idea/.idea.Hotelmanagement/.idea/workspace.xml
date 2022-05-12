@@ -5,13 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6afb42e2-55d4-4505-87a8-3dc22eedea43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentMethodsDB.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Models/Tax/TaxDB.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/ComplainTab.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/ComplainTab.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/CustomerDiscounts/CustomerDiscountsDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/CustomerDiscounts/CustomerDiscountsDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Invoice/Invoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Invoice/Invoice.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/Models/Invoice/InvoiceDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Invoice/InvoiceDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/RestaurantVisit/RestaurantVisitDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/RestaurantVisit/RestaurantVisitDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/RestaurantVisitHotelGuest/RestaurantVisitHotelGuest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/RestaurantVisitHotelGuest/RestaurantVisitHotelGuest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/RestaurantVisitHotelGuest/RestaurantVisitHotelGuestDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/RestaurantVisitHotelGuest/RestaurantVisitHotelGuestDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Service/ServiceDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Service/ServiceDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/SpecialOffers/SpecialOffersDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/SpecialOffers/SpecialOffersDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Tax/Tax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Tax/Tax.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Visit/VisitDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Visit/VisitDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/VisitDiscount/VisitDiscountDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/VisitDiscount/VisitDiscountDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/VisitRoom/VisitRoomDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/VisitRoom/VisitRoomDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/VisitService/VisitServiceDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/VisitService/VisitServiceDB.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +47,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2b6b16776cd54434a04affbc0feca44fece70d311fd4178ceca2a1b4330e4/VirtualizedCellInfoCollection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a1ad32abaee44480b66c2c1fcee9628cca92a4cd272eced5781564201180/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c95dcc58313213285a3bb76c2a3cedab84d293d1b4f5693c7b33d0f2648e5/Convert.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,12 +65,6 @@
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;MariaDB&quot;,
-      &quot;MySQL&quot;
-    ]
   }
 }</component>
   <component name="RunManager">
@@ -96,6 +103,15 @@
       <workItem from="1650975595995" duration="2174000" />
       <workItem from="1651000755094" duration="299000" />
       <workItem from="1651505015845" duration="7130000" />
+      <workItem from="1652095228181" duration="92000" />
+      <workItem from="1652095378900" duration="2347000" />
+      <workItem from="1652115860034" duration="28000" />
+      <workItem from="1652173785567" duration="8779000" />
+      <workItem from="1652185324794" duration="2221000" />
+      <workItem from="1652192231416" duration="8000" />
+      <workItem from="1652263090511" duration="10034000" />
+      <workItem from="1652275236084" duration="2192000" />
+      <workItem from="1652349069445" duration="142000" />
     </task>
     <task id="LOCAL-00001" summary="Added the MainWindow Design and some Database basics">
       <created>1650892678105</created>
@@ -149,5 +165,17 @@
     <MESSAGE value="Added the MainWindow Design and some Database basics" />
     <MESSAGE value="Added the Main-Window design and some database basics" />
     <option name="LAST_COMMIT_MESSAGE" value="Added the Main-Window design and some database basics" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="System.InvalidCastException" isInternal="false" displayValue="InvalidCastException" namespaceName="System">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

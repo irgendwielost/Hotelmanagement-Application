@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Windows;
+using Hotelmanagement.BackEnd.Database;
 using Hotelmanagement.BackEnd.Models.Visit;
+using Hotelmanagement.BackEnd.ViewModels.VisitDiscount;
 using MySql.Data.MySqlClient;
 
-namespace Hotelmanagement.BackEnd.ViewModels.VisitDiscount;
+
 
 public class VisitDiscountDB
 {
     public static void AddVisitDiscount(VisitDiscount visitDiscount)
     {
-        using var db = new Database.Database();
+        using var db = new Database();
         try
         {
             db.connection.Open();

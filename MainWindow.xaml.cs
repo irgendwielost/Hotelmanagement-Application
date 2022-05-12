@@ -53,17 +53,16 @@ namespace Hotelmanagement
         private BaseDataTab _baseDataTab = new BaseDataTab();
         private BookingTab _bookingTab = new BookingTab();
         private InvoiceTab _invoiceTab = new InvoiceTab();
-
+        private ComplainTab _complainTab = new ComplainTab();
         private void BookVisit(int visitId)
         {
             //Data objects for the visit
             Visit visit = VisitDB.GetVisitById(visitId); //Get visit by selected id
-            MessageBox.Show(visit.Room_ID.ToString());
             VisitService visitService = VisitServiceDB.GetVisitServiceById(visitId); //Get visit service by selected visit id
             Rooms room = RoomsDB.GetRoomById(visit.Room_ID); //Get room by selected visit id
+            MessageBox.Show(visitId.ToString());
             RestaurantVisitHotelGuest restaurantVisitHotelGuest =
                 RestaurantVisitHotelGuestDB.GetRestaurantVisitByVisitId(visitId); //Get restaurant visit by selected visit id
-            
             double restaurantVisitPrice = 0;
             double servicePrice = 0;
             
@@ -88,7 +87,7 @@ namespace Hotelmanagement
             double tax = 0.19;
             double gross = subtotal + servicePrice + restaurantVisitPrice; //Get total price
             double taxSum = gross * tax;
-            double total = taxSum + subtotal;
+            double total = taxSum + subtotal; //TODO: FIX THE TAXES!!! -> Invoicetab
                            
             VisitDB.UpdateVisit(new Visit(visitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 
                 visit.Room_ID, visit.Person_Amount, servicePrice, visit.Room_Costs, visit.Arrival, visit.Departure, 
@@ -96,8 +95,10 @@ namespace Hotelmanagement
                 false));
             
             //Create invoice
-            var invoiceId = InvoiceDB.CreateInvoice(new Invoice(0, visitId, total, visit.Room_Costs, servicePrice,
-                restaurantVisitPrice, 0, 0, 1, taxSum, false, false));
+            var invoiceId = InvoiceDB.CreateInvoice(new Invoice(0, visitId, total, 
+                visit.Room_ID, visit.Room_Costs, servicePrice,
+                restaurantVisitPrice, 0, 0, 1, 
+                taxSum, DateTime.Now, false, false));
             
             //Open the discount checkout window to check if the customer wants to apply a discount
             DiscountCheckout discountCheckout = new DiscountCheckout(visitId, (int)invoiceId);
@@ -162,6 +163,14 @@ namespace Hotelmanagement
             ContentControl.Content = _invoiceTab;
             HideMain();
             Change_Tab(6);
+        }
+        
+        //Complains
+        private void Switch_Complain(object sender, RoutedEventArgs e)
+        {
+            ContentControl.Content = _complainTab;
+            HideMain();
+            Change_Tab(7);
         }
         private void HideMain()
         {

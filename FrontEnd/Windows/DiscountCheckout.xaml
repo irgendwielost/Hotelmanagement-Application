@@ -98,11 +98,18 @@
             <Button Grid.Row="0"
                     Click="SaveButton_Click"
                     Width="250"
-                    Content="Speichern" Margin="280,0,-130,0" Cursor="Hand"/>
+                    Content="Speichern" Margin="75,20,75,31" Cursor="Hand"/>
             <Button Grid.Row="1"
                     Width="250"
                     Content="Abbrechen"
-                    Margin="280,0,-130,0"/>
+                    Margin="80,17,70,35"/>
+        </Grid>
+        
+        <Grid Grid.Row="2" Grid.Column="1">
+            <materialDesign:RatingBar
+                x:Name="BasicRatingBar"
+                Value="3"
+                ValueChanged="BasicRatingBar_ValueChanged" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
     </Grid>
 </Window>

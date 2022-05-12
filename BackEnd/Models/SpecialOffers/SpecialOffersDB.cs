@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Data;
 using System.Windows;
+using Hotelmanagement.BackEnd.Database;
+using Hotelmanagement.BackEnd.ViewModels.SpecialOffers;
 using MySql.Data.MySqlClient;
-
-namespace Hotelmanagement.BackEnd.ViewModels.SpecialOffers;
 
 public class SpecialOffersDB
 {
     public static DataSet GetDataSetSpecialOffers()
     {
-        using var db = new Database.Database();
+        using var db = new Database();
             
         try
         {
@@ -38,7 +38,7 @@ public class SpecialOffersDB
     
     public static SpecialOffers GetSpecialOffersById(int id)
     {
-        using var db = new Database.Database();
+        using var db = new Database();
             
         try
         {

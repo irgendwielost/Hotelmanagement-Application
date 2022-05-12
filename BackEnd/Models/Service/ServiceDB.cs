@@ -65,8 +65,7 @@ namespace Hotelmanagement.BackEnd.Models.Service
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Es ist ein Fehler aufgetreten");
+                MessageBox.Show("" + ex.Message);
                 return null;
             }
 

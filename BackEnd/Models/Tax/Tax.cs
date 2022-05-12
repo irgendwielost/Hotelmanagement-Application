@@ -1,6 +1,4 @@
-﻿namespace Hotelmanagement.BackEnd.Models.Tax;
-
-public class Tax
+﻿public class Tax
 {
     public Tax(int id, string designation, double value)
     {

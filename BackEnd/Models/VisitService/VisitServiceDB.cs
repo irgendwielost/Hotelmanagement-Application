@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Windows;
+using Hotelmanagement.BackEnd.Database;
 using Hotelmanagement.BackEnd.Models.Visit;
+using Hotelmanagement.BackEnd.ViewModels.VisitService;
 using MySql.Data.MySqlClient;
-
-namespace Hotelmanagement.BackEnd.ViewModels.VisitService;
 
 public class VisitServiceDB
 {
     public static VisitService GetVisitServiceById(int id)
     {
-        using var db = new Database.Database();
+        using var db = new Database();
             
         try
         {

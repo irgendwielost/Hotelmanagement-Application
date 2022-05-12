@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Data;
 using System.Windows;
+using Hotelmanagement.BackEnd.Database;
+using Hotelmanagement.BackEnd.Models.CustomerDiscounts;
 using MySql.Data.MySqlClient;
-
-namespace Hotelmanagement.BackEnd.Models.CustomerDiscounts;
-
 public class CustomerDiscountsDB
 {
     public static DataSet GetDataSetCustomerDiscountsById(int id)
     {
-        using var db = new Database.Database();
+        using var db = new Database();
             
         try
         {
@@ -37,7 +36,7 @@ public class CustomerDiscountsDB
 
     public static CustomerDiscounts GetCustomerDiscountsById(int id)
     {
-        using var db = new Database.Database();
+        using var db = new Database();
             
         try
         {
@@ -51,22 +50,25 @@ public class CustomerDiscountsDB
             
         try
         {
-            var cmd = new MySqlCommand($"SELECT * FROM `kunden-rabatte` WHERE Kunde_ID={id}", db.connection);
+            var cmd = new MySqlCommand($"SELECT * FROM `kunden-rabatte` WHERE ID={id}", db.connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 
-            if(reader.Read())
+            if (!reader.Read())
             {
-                return new CustomerDiscounts(id, reader.GetInt32(1), reader.GetString(2), 
+                MessageBox.Show("Der Reader redet keine kunden rabatte bro");
+            }
+            else
+            {
+                return new CustomerDiscounts(id, reader.GetInt32(1), reader.GetString(2),
                     reader.GetDouble(3));
             }
-                
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message);
+            MessageBox.Show("Der Kundenrabatt konnte nicht abgerufen werden\n" + ex.Message);
             return null;
         }
 
-        return null;
+        return null!;
     }
 }

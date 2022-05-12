@@ -68,6 +68,8 @@
                     <Button Click="Switch_BaseData" Content="Stammdaten"/>
                     <!-- Invoice -->
                     <Button Click="Switch_Invoice" Content="Rechnungen"/>
+                    <!-- Reklamation -->
+                    <Button Click="Switch_Complain" Content="Reklamation"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1">
                     <!-- Tabcontrol -->
@@ -82,7 +84,8 @@
                             <TabItem Width="80" Height="20" VerticalAlignment="Center"/>
                             <TabItem Width="145" Height="20" VerticalAlignment="Center"/>
                             <TabItem Width="145" Height="20" VerticalAlignment="Center"/>
-                            <TabItem  Height="20" VerticalAlignment="Center" Width="235"/>
+                            <TabItem Width="145" Height="20" VerticalAlignment="Center"/>
+                            <TabItem  Height="20" VerticalAlignment="Center" Width="85"/>
                         </TabControl>
                     </materialDesign:Card>
                 </StackPanel>

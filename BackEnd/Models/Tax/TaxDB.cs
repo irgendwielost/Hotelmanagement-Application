@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Windows;
-using Hotelmanagement.BackEnd.Database;
-using Hotelmanagement.BackEnd.Models.RestaurantVisit;
 using MySql.Data.MySqlClient;
-public class RestaurantVisitDB
+
+namespace Hotelmanagement.BackEnd.Models.Tax;
+
+public class TaxDB
 {
-    public static RestaurantVisit GetRestaurantVisitById(int id)
+    public static global::Tax GetTaxById(int id)
     {
-        using var db = new Database();
+        using var db = new Database.Database();
             
         try
         {
@@ -21,20 +22,18 @@ public class RestaurantVisitDB
             
         try
         {
-            var cmd = new MySqlCommand($"SELECT * FROM `restaurant-besuch` WHERE ID={id}", db.connection);
+            var cmd = new MySqlCommand($"SELECT * FROM `Steuer` WHERE ID={id}", db.connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             if(reader.Read())
             {
-                return new RestaurantVisit(id, reader.GetInt32(1), reader.GetDouble(2), 
-                    reader.GetBoolean(3));
+                return new global::Tax(id, reader.GetString(1), reader.GetDouble(2));
             }
                 
         }
         catch (Exception ex)
         {
             MessageBox.Show(ex.Message);
-            MessageBox.Show("Es ist ein Fehler aufgetreten");
             return null;
         }
 

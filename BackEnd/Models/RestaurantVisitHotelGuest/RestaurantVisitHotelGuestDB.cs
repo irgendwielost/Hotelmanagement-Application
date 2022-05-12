@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Windows;
+using Hotelmanagement.BackEnd.Database;
+using Hotelmanagement.BackEnd.Models.RestaurantVisitHotelGuest;
 using Hotelmanagement.BackEnd.ViewModels.VisitService;
 using MySql.Data.MySqlClient;
-
-namespace Hotelmanagement.BackEnd.Models.RestaurantVisitHotelGuest;
-
 public class RestaurantVisitHotelGuestDB
 {
     public static RestaurantVisitHotelGuest GetRestaurantVisitByVisitId(int id)
     {
-        using var db = new Database.Database();
+        using var db = new Database();
             
         try
         {
@@ -28,15 +27,14 @@ public class RestaurantVisitHotelGuestDB
 
             if(reader.Read())
             {
-                return new RestaurantVisitHotelGuest(reader.GetInt32(0), reader.GetInt32(1), id, 
-                    reader.GetDateTime(3));
+                return new RestaurantVisitHotelGuest(reader.GetInt32(0), reader.GetInt32(1), 
+                    reader.GetDateTime(3), id);
             }
                 
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message);
-            MessageBox.Show("Es ist ein Fehler aufgetreten");
+            MessageBox.Show("Die Daten zu dem Restaurant Aufenthalt konnten nicht abgerufen werden\n" + ex.Message);
             return null;
         }
 

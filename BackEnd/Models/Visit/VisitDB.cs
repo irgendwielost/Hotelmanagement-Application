@@ -174,5 +174,37 @@ namespace Hotelmanagement.BackEnd.Models.Visit
             return 0;
         }
         
+        public static DataSet GetDataSetVisitForInvoice(int id)
+        {
+            using var db = new Database.Database();
+            
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
+            
+            try
+            {
+                
+                var adapter = new MySqlDataAdapter("select besuche.* , " +
+                                                   "k.Name as CustomerName, " +
+                                                   "z.Bezeichnung as RoomName from `besuche` " +
+                                                   "join kunden k on k.ID = besuche.Kunde_ID " +
+                                                   "join zimmer z on besuche.Zimmer_ID = z.ID " +
+                                                   $"WHERE ID={id}", db.connection);
+                DataSet dataSet = new();
+                adapter.Fill(dataSet, "besuche");
+                return dataSet;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
