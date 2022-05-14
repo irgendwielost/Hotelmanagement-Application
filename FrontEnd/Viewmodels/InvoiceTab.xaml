@@ -92,7 +92,7 @@
                                    Text=""/>
                         <!-- Room Price -->
                         <TextBlock x:Name="RoomPriceText"
-                                   Text="0" Width="135" TextAlignment="Right" HorizontalAlignment="Right"/>
+                                   Text="0" Width="105" TextAlignment="Right"/>
                     </StackPanel>
                 </StackPanel>
 
@@ -154,7 +154,7 @@
                                    HorizontalAlignment="Center"/>
                         <TextBlock x:Name="TypeOfStayPriceText"
                                    Text="0" 
-                                   Width="192" 
+                                   Width="108" 
                                    TextAlignment="Right"/>
                     </StackPanel>
 
@@ -170,7 +170,7 @@
                     <!-- Gross costs -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="GrossPriceHeader"
-                                  Text="Brutto:   "/>
+                                  Text="Netto:   "/>
                         <TextBlock x:Name="GrossPriceText"
                                   Text=""
                                   FontStyle="Italic" 

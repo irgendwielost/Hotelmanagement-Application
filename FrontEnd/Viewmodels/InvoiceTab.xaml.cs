@@ -118,9 +118,9 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             visitTotal = Math.Round(visitTotal, 2);
             Tax tax = TaxDB.GetTaxById(invoice.Tax_Id);                                         // Tax object
             TaxesHeader.Text = tax.Designation;                                                 // Designation of the taxes
-            double grossSum = visitTotal - invoice.Tax_Sum;                                     // Costs without taxes
-            grossSum = Math.Round(grossSum, 2);
-            GrossPriceText.Text = grossSum.ToString(CultureInfo.InvariantCulture) + "€";        // Gross price text
+            double netSum = visitTotal;                                                       // Costs with taxes
+            netSum = Math.Round(netSum, 2);
+            GrossPriceText.Text = netSum.ToString(CultureInfo.InvariantCulture) + "€";        // Gross price text
             double taxSum = Math.Round(invoice.Tax_Sum,2);
             TaxesText.Text = taxSum.ToString(CultureInfo.InvariantCulture) + "€";               // tax sum text
             double total = visitTotal - discount;

@@ -87,7 +87,7 @@ namespace Hotelmanagement
             double tax = 0.19;
             double gross = subtotal + servicePrice + restaurantVisitPrice; //Get total price
             double taxSum = gross * tax;
-            double total = taxSum + subtotal; //TODO: FIX THE TAXES!!! -> Invoicetab
+            double total = Math.Round(gross, 2); //Round the total price
                            
             VisitDB.UpdateVisit(new Visit(visitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 
                 visit.Room_ID, visit.Person_Amount, servicePrice, visit.Room_Costs, visit.Arrival, visit.Departure, 
