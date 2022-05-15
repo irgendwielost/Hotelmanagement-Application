@@ -60,7 +60,6 @@ namespace Hotelmanagement
             Visit visit = VisitDB.GetVisitById(visitId); //Get visit by selected id
             VisitService visitService = VisitServiceDB.GetVisitServiceById(visitId); //Get visit service by selected visit id
             Rooms room = RoomsDB.GetRoomById(visit.Room_ID); //Get room by selected visit id
-            MessageBox.Show(visitId.ToString());
             RestaurantVisitHotelGuest restaurantVisitHotelGuest =
                 RestaurantVisitHotelGuestDB.GetRestaurantVisitByVisitId(visitId); //Get restaurant visit by selected visit id
             double restaurantVisitPrice = 0;

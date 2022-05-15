@@ -5,16 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6afb42e2-55d4-4505-87a8-3dc22eedea43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/Models/Employee/EmployeeDB.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/Windows/LogIn.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/Windows/LogIn.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Models/PaymentMethods/PaymentMethodsDB.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Employee/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Employee/Employee.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/InvoiceTab.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Customer/CustomerDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Customer/CustomerDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentMethodsDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentMethodsDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentmethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentmethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Rooms/RoomsDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Rooms/RoomsDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Service/ServiceDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Service/ServiceDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Windows/TargetAudienceFactors.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Windows/TargetAudienceFactors.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +115,10 @@
       <workItem from="1651000755094" duration="299000" />
       <workItem from="1651505015845" duration="7130000" />
       <workItem from="1652435137146" duration="5093000" />
-      <workItem from="1652529576371" duration="500000" />
+      <workItem from="1652529576371" duration="1070000" />
+      <workItem from="1652609651206" duration="10521000" />
+      <workItem from="1652623821185" duration="87000" />
+      <workItem from="1652630921156" duration="1103000" />
     </task>
     <task id="LOCAL-00001" summary="Added the MainWindow Design and some Database basics">
       <created>1650892678105</created>
@@ -127,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652387563787</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added a login system and fixed some invoice bugs">
+      <created>1652530361009</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652530361009</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +186,7 @@
     <MESSAGE value="Added the MainWindow Design and some Database basics" />
     <MESSAGE value="Added the Main-Window design and some database basics" />
     <MESSAGE value="Fixed some error handling bugs and the invoice display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some error handling bugs and the invoice display" />
+    <MESSAGE value="Added a login system and fixed some invoice bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a login system and fixed some invoice bugs" />
   </component>
 </project>

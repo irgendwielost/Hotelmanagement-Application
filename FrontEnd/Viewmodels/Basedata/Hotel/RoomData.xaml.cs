@@ -47,36 +47,45 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
         private void DataGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Selected Item
-            object item = ListView.SelectedItem; 
-            
-            //Selected Item | id
-            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            //Check if id is null
-            if(id == null)
+            object item = ListView.SelectedItem;
+
+            if (item != null)
             {
-                return;
+                //Selected Item | id
+                var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+            
+                //Check if id is null
+                if(id == null)
+                {
+                    return;
+                }
+            
+                //Display description of room
+                if (id != "")
+                {
+                    GetDescription(Int32.Parse(id));
+                }
             }
             
-            //Display description of room
-            if (id != "")
-            {
-                GetDescription(Int32.Parse(id));
-            }
         }
         
         private void AddRoom(object sender, RoutedEventArgs e)
         {
             //Selected Item
-            object item = ListView.SelectedItem; 
+            object item = ListView.SelectedItem;
+            var id = "0";
             
-            //Selected Item | id
-            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
-
-            if (id == "")
+            if (item != null)
             {
-                id = "0";
+                //Selected Item | id
+                id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+
+                if (id == "")
+                {
+                    id = "0";
+                }
             }
+            
             
             //Selected Item | name
             var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
@@ -104,11 +113,38 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Basedata.Hotel
             RoomsDB.CreateRoom(new Rooms(Int32.Parse(id), name, size, Double.Parse(price), 
                 Int32.Parse(amount), description, Int32.Parse(extraBedCapacity), 
             Double.Parse(extraBedPrice), situation, false));
+            UpdateDataGrid();
         }
         private void GetDescription(int id)
         {
             Rooms room = RoomsDB.GetRoomById(id);
             DescriptionBox.Text = room.Description;
         }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            UpdateDataGrid();
+        }
+
+        private void DeleteRoom(object sender, RoutedEventArgs e)
+        {
+            //Selected Item
+            object item = ListView.SelectedItem;
+            var id = "0";
+            
+            if (item != null)
+            {
+                //Selected Item | id
+                id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+
+                if (id != null) RoomsDB.DeleteRoom(Int32.Parse(id));
+                else
+                {
+                    MessageBox.Show("Es ist kein Raum ausgewählt");
+                }
+            }
+            
+        }
+        
     }
 }

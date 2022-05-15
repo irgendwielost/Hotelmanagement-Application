@@ -136,10 +136,10 @@
                     </Grid.Resources>
                     <!-- Top Buttons -->
                     <!-- Restaurant -->
-                    <StackPanel Grid.Row="0" Grid.Column="1">
+                    <StackPanel Grid.Row="0" Grid.Column="3">
                         <Button Click="Switch_Restaurant"
                                 Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-                                ToolTip="MaterialDesignFloatingActionDarkButton">
+                                ToolTip="Restaurant Verwaltung">
                             <materialDesign:PackIcon Kind="SilverwareForkKnife"/>
                         </Button>
                         <TextBlock>Restaurant</TextBlock>
@@ -149,7 +149,7 @@
                         <!-- Customer -->
                         <Button Click="Switch_Customer"
                                 Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-                                ToolTip="MaterialDesignFloatingActionDarkButton">
+                                ToolTip="Kunden erstellen">
                             <materialDesign:PackIcon Kind="AccountGroup"/>
                         </Button>
                         <TextBlock>Kunde</TextBlock>
@@ -158,22 +158,22 @@
 
                     <!-- Bottom Buttons -->
                     <!-- Spa -->
-                    <StackPanel Grid.Row="0" Grid.Column="3">
+                    <StackPanel Grid.Row="0" Grid.Column="4">
                         <!-- Customer -->
-                        <Button Click="Switch_Customer"
+                        <Button Click="Switch_Spa"
                                 Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-                                ToolTip="MaterialDesignFloatingActionDarkButton">
-                            <materialDesign:PackIcon Kind="AccountGroup"/>
+                                ToolTip="Spa Verwaltung">
+                            <materialDesign:PackIcon Kind="Spa"/>
                         </Button>
-                        <TextBlock>Kunde</TextBlock>
+                        <TextBlock>Spa</TextBlock>
                     </StackPanel>
 
 
                     <!-- Booking -->
-                    <StackPanel Grid.Row="0" Grid.Column="4">
+                    <StackPanel Grid.Row="0" Grid.Column="1">
                         <Button Click="Switch_Booking"
                                 Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-                                ToolTip="MaterialDesignFloatingActionDarkButton">
+                                ToolTip="Zimmer buchen" Cursor="Hand">
                             <materialDesign:PackIcon Kind="Book"/>
                         </Button>
                         <TextBlock>Buchung</TextBlock>
@@ -186,7 +186,7 @@
                         <Button Click="Switch_BaseData" 
                                 Grid.Column="2"  Grid.RowSpan="2"
                                 Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-                                ToolTip="MaterialDesignFloatingActionDarkButton">
+                                ToolTip="Verwaltung der Stammdaten">
                             <materialDesign:PackIcon Kind="Database" />
                         </Button>
                         <TextBlock>Stammdaten</TextBlock>

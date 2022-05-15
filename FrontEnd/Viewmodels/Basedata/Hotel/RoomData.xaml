@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <!-- Datagrid -->
         <DataGrid  Grid.Row="0"
                    x:Name="ListView"
@@ -20,7 +20,7 @@
                    AutoGeneratingColumn="OnAutoGeneratingColumn"
                    SelectionChanged="DataGrid_OnSelectionChanged">
         </DataGrid>
-        
+
         <StackPanel Grid.Row="1">
             <Grid>
                 <Grid.Resources>
@@ -34,7 +34,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -50,9 +50,16 @@
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Hint="Beschreibung"/>
                 </StackPanel>
-                
+
                 <Button Click="AddRoom" Grid.Row="0" Grid.Column="1" x:Name="Add" Content="Hinzufügen" Margin="0,20,0,0"/>
-                <Button Grid.Row="1" Grid.Column="1" x:Name="Delete" Content="Löschen" Margin="0,20,0,0"/>
+                <Button Click="DeleteRoom" Grid.Row="1" Grid.Column="1" x:Name="Delete" Content="Löschen" Margin="0,20,0,0"/>
+                <!-- Refresh button -->
+                <Button Grid.Row="0" Grid.Column="0" Click="Refresh"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                        ToolTip="MaterialDesignFloatingActionMiniDarkButton" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand">
+                    <materialDesign:PackIcon
+                        Kind="Refresh"/>
+                </Button>
             </Grid>
         </StackPanel>
     </Grid>

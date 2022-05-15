@@ -173,6 +173,14 @@
 
             <TextBlock x:Name="TotalPriceTextBlock" Grid.Row="2" Grid.Column="0" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="36"/>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="€" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="36" Margin="154,0,0,0"/>
+            <!-- Refresh button -->
+            <Button Grid.Row="0" Grid.Column="1" Click="Refresh"
+                   
+             Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+             ToolTip="MaterialDesignFloatingActionMiniDarkButton" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,2,0,0">
+                <materialDesign:PackIcon
+                Kind="Refresh"/>
+            </Button>
         </Grid>
 
         <!-- Bottom-Right | Buttons -->

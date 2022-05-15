@@ -24,7 +24,7 @@ namespace Hotelmanagement.BackEnd.Models.Service
             try
             {
                 
-                var adapter = new MySqlDataAdapter("select * from `serviceangebote`", db.connection);
+                var adapter = new MySqlDataAdapter("select * from `serviceangebote` WHERE Entfernt = 0", db.connection);
                 DataSet dataSet = new();
                 adapter.Fill(dataSet, "serviceangebote");
                 return dataSet;
@@ -101,6 +101,30 @@ namespace Hotelmanagement.BackEnd.Models.Service
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Es ist ein Fehler aufgetreten");
+            }
+        }
+        
+        public static void DeleteService(int id)
+        {
+            using var db = new Database.Database();
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
+
+            try
+            {
+                var cmd = new MySqlCommand($"UPDATE `serviceangebote` SET Entfernt = true WHERE ID={id}", db.connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Der Service konnte nicht gelöscht werden\n" + "Error:" + ex.Message);
             }
         }
     }

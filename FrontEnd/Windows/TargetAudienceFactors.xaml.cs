@@ -37,15 +37,16 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Windows
             var familystate = Familystate.Text;
             var job = Job.Text;
             var company = Company.Text;
-            var salary = Salary.SelectedValue.ToString();
+            var salary = "";
+            if (Salary.SelectedValue != null)
+            {
+                salary = Salary.SelectedValue.ToString();
+            }
+            
             var businessTrip = businesstrip.IsChecked.Value;
             
 
-            if (gender != "" && travelReason != "" && lifestyle != "" && familystate != "" && job != ""
-                && company != "" && salary != "")
-            {
-                MessageBox.Show("nice");
-                MessageBox.Show(salary);
+           
                 try
                 {
                     AudienceFactorsDB.CreateCustomerTAF(new AudienceFactors(Int32.Parse(id), gender, 
@@ -57,8 +58,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels.Windows
                 {
                     MessageBox.Show("Error: " + exception);
                 }
-                
-            }
+         
             
         }
     }

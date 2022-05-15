@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Hotelmanagement.FrontEnd.Viewmodels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
+             Language="de-DE"
              Background="white"
              d:DesignHeight="545" d:DesignWidth="1000">
     <Grid>
@@ -35,7 +36,7 @@
         </Grid.Resources>
 
         <!-- Inputs -->
-
+        <TextBlock x:Name="hiddenId" Foreground="white" Margin="233,41,10,60" Grid.Column="2" Grid.Row="3"/>
         <!-- Column 0 | Row 0  -->
         <!-- Name -->
         <TextBox x:Name="Name" Grid.Column="0" Grid.Row="0" 
@@ -91,13 +92,36 @@
         <Button Click="AddCustomer" Grid.Column="0" Grid.Row="3" Margin="30,10,45,65">Speichern</Button>
         <Button Click="DeleteCustomer" Grid.Column="0" Grid.Row="3" Margin="30,70,45,5">Löschen</Button>
 
+        <!-- Refresh button -->
+        <Button Grid.Row="2" Grid.Column="2" Click="Refresh"
+                   
+             Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+             ToolTip="MaterialDesignFloatingActionMiniDarkButton" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,2,0,0" Cursor="Hand">
+            <materialDesign:PackIcon
+                Kind="Refresh"/>
+        </Button>
+
         <!-- Datagrid -->
         <DataGrid 
+            IsReadOnly="True"
             x:Name="ListView"
             CanUserAddRows="False"
             AutoGeneratingColumn="OnAutoGeneratingColumn"
             SelectionChanged="DataGrid_OnSelectionChanged"
-            Grid.ColumnSpan="2" Margin="2,0,0,134" Grid.RowSpan="3" Grid.Column="1"/>
+            Grid.ColumnSpan="3" Margin="230,0,0,134" Grid.RowSpan="3"/>
 
+        <!-- Paymentmethod -->
+        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="PaymentMethodCombobox" 
+                  DisplayMemberPath="Name" 
+                  SelectedValuePath="ID"
+                  IsEditable="True"
+                  materialDesign:HintAssist.Hint="Bezahlmethode auswählen"
+                  materialDesign:HintAssist.HintOpacity=".26" VerticalAlignment="Bottom"
+                  Margin="7,0,0,79" HorizontalAlignment="Left"/>
+        <TextBox x:Name="methodInfoText" Grid.Column="1" Grid.Row="2" 
+            materialDesign:HintAssist.Hint="Bezahlinformationen"
+            Width="160" 
+            HorizontalAlignment="Right"
+            Margin="0,81,167,25"/>
     </Grid>
 </UserControl>

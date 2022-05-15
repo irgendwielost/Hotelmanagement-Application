@@ -122,7 +122,6 @@ namespace Hotelmanagement.FrontEnd.Windows
                     double discount = subtotal * specialOfferValue; // calculate the discount €
                     double totalcosts = subtotal - discount; //calculate the total costs minus the discount
                     
-                    MessageBox.Show("Total: " + totalcosts + "\n Discount: " + discount);
                     
                     //Update the visit entry for the costs and discount
                     VisitDB.UpdateVisit(new Visit(VisitId, visit.Customer_ID, visit.Visit_Type_Of_Stay_ID, 

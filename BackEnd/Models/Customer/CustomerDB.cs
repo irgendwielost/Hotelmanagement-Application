@@ -25,7 +25,7 @@ namespace Hotelmanagement.BackEnd.Models.Customer
             try
             {
                 
-                var adapter = new MySqlDataAdapter("select * from `kunden`", db.connection);
+                var adapter = new MySqlDataAdapter("select * from `kunden` WHERE Entfernt = 0", db.connection);
                 DataSet dataSet = new();
                 adapter.Fill(dataSet, "kunden");
                 return dataSet;
@@ -56,7 +56,10 @@ namespace Hotelmanagement.BackEnd.Models.Customer
                                            $"Telefon, EMail, Strasse, Wohnort, Plz, Entfernt) VALUES ({customer.ID}, " +
                                            $"'{customer.Name}', @Geburtstag,'{customer.Telephone}', '{customer.Email}', " +
                                            $"'{customer.Street}', '{customer.Place}', " +
-                                           $"'{customer.PostalCode}', false)", db.connection);
+                                           $"'{customer.PostalCode}', false) ON DUPLICATE KEY UPDATE Name = '{customer.Name}'," +
+                                           $"Geburtstag = @Geburtstag, Telefon = '{customer.Telephone}', " +
+                                           $"EMail = '{customer.Email}', Strasse = '{customer.Street}', " +
+                                           $"Wohnort = '{customer.Place}', Plz = '{customer.PostalCode}'", db.connection);
                 cmd.Parameters.Add("@Geburtstag", MySqlDbType.Date).Value = customer.Birthday;
                 cmd.ExecuteNonQuery();
                 return cmd.LastInsertedId;

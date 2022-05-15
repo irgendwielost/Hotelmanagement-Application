@@ -24,7 +24,8 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
             try
             {
                 
-                var adapter = new MySqlDataAdapter("select * from `zimmer`", db.connection);
+                var adapter = new MySqlDataAdapter("select * from `zimmer` WHERE Entfernt = 0", 
+                    db.connection);
                 DataSet dataSet = new();
                 adapter.Fill(dataSet, "zimmer");
                 return dataSet;
@@ -107,5 +108,30 @@ namespace Hotelmanagement.BackEnd.Models.Rooms
                 MessageBox.Show("Es ist ein Fehler aufgetreten");
             }
         }
+        
+        public static void DeleteRoom(int id)
+        {
+            using var db = new Database.Database();
+            try
+            {
+                db.connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"table opening error{e}");
+                throw;
+            }
+
+            try
+            {
+                var cmd = new MySqlCommand($"UPDATE `zimmer` SET Entfernt = true WHERE ID={id}", db.connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Der Kunde konnte nicht gelöscht werden\n" + "Error:" + ex.Message);
+            }
+        }
+        
     }
 }

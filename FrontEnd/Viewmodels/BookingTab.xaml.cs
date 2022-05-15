@@ -260,5 +260,12 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             ExtraBedPriceTextBox.Text = "";
             RoomPriceTextBox.Text = "";
         }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            UpdateCustomerComboBox();
+            UpdateRoomComboBox();
+            UpdateTypeOfStayComboBox();
+        }
     }
 }

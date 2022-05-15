@@ -7,8 +7,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Hotelmanagement.BackEnd.Models.Customer;
+using Hotelmanagement.BackEnd.Models.CustomerPaymentmethods;
 using Hotelmanagement.BackEnd.Models.Department;
+using Hotelmanagement.BackEnd.ViewModels.CustomerPaymentmethods;
 using Hotelmanagement.BackEnd.ViewModels.Department;
+using Hotelmanagement.BackEnd.ViewModels.PaymentMethods;
 using Hotelmanagement.FrontEnd.Viewmodels.Windows;
 
 namespace Hotelmanagement.FrontEnd.Viewmodels
@@ -19,6 +22,7 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
         {
             InitializeComponent();
             UpdateDataGrid();
+            UpdatePaymentMethCombobox();
         }
 
         private void UpdateDataGrid()
@@ -27,22 +31,35 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             ListView.ItemsSource = dataset.Tables["kunden"]?.DefaultView;
         }
         
+        public void UpdatePaymentMethCombobox()
+        {
+            try
+            {
+                var dataset = PaymentMethodsDB.GetDatasetPaymentMeth();
+                PaymentMethodCombobox.ItemsSource = dataset.Tables[0].DefaultView;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Daten zu den Bezahlmethoden konnten nicht geladen werden.\n"
+                                +"Error:"+  e.Message);
+            }
+        }
+        
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
             e.Column.Header = propertyDescriptor.DisplayName;
-            if (propertyDescriptor.DisplayName == "ID")
-            {
-                e.Column.Header = "ID";
-            }
             if (propertyDescriptor.DisplayName == "Entfernt")
             {
                 e.Cancel = true;
             }
+
         }
         private void AddCustomer(object sender, RoutedEventArgs e)
         {
             var id = "0";
+            var customerId = hiddenId.Text;
+            var methInfo = methodInfoText.Text;
             var name = Name.Text;
             var email = Email.Text;
             var birthday = this.Birthday.SelectedDate;
@@ -50,16 +67,32 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             var address = Street.Text;
             var place = Place.Text;
             var zip = PostalCode.Text;
+            var paymentMeth = PaymentMethodCombobox.SelectedValue;
             
-            if(name != "" && email != "" && telephone != "" && address != "" && place != "" && zip != "")
+            if(name != "" && email != "" && telephone != "" && address != "" && place != "" && zip != "" )
             {
                 if (birthday != null)
                 {
                     var selectedBirthday = birthday.Value.ToShortDateString();
-                    
-                    long customerID = CustomerDB.CreateCustomer(new Customer(Int32.Parse(id), name, 
+                    if (customerId == "")
+                    {
+                        customerId = "0";
+                    }   
+                    long customerID = CustomerDB.CreateCustomer(new Customer(Int32.Parse(customerId), name, 
                         DateTime.Parse(selectedBirthday), telephone, email,
                         address, place, zip, false));
+                    
+                    if (methInfo != "" && paymentMeth != null)
+                    {
+                        CustomerPaymentMethodsDB.AddPaymentMeth(new CustomerPaymentmethods(0, Int32.Parse(customerID.ToString()), 
+                            Int32.Parse(paymentMeth.ToString() ?? string.Empty), methInfo, false));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bitte geben Sie eine Bezahlmethode und eine Bezahlmethode-Info an.");
+                    }
+                    
+                    hiddenId.Text = "0";
                     Name.Text = "";
                     Email.Text = "";
                     Tel.Text = "";
@@ -67,8 +100,9 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
                     Place.Text = "";
                     PostalCode.Text = "";
                     Birthday.SelectedDate = null;
+                    PaymentMethodCombobox.SelectedValue = 0;
+                    methodInfoText.Text = "";
                     
-                
                     if (customerID != 0)
                     {
                         if(MessageBox.Show("Möchten sie noch Zielgruppenfaktoren hinzufügen?", "Question", 
@@ -100,11 +134,11 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             object item = ListView.SelectedItem; 
             
             //Selected Item | id
-            if (item != null && item != "")
+            if (item != null)
             {
                 var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
 
-                if (string.IsNullOrEmpty(id))
+                if (id == "")
                 {
                     MessageBox.Show("Es wurde keine ID gefunden");
                 }
@@ -126,15 +160,24 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
              
             //Selected Item
             object item = ListView.SelectedItem;
-            
-            //Selected Item | id
-            var id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
-            
-            if(id == null)
+            var id = "0";
+            if (item != null)
             {
-                MessageBox.Show("Keine ID");
+                //Selected Item | id
+                id = (ListView.SelectedCells[0].Column.GetCellContent(item) as TextBlock)?.Text;
+                
+                hiddenId.Text = id;
+                if(id == null)
+                {
+                    MessageBox.Show("Keine ID");
+                    return;
+                }
+            }
+            else
+            {
                 return;
             }
+            
 
             //Selected Item | name
             var name = (ListView.SelectedCells[1].Column.GetCellContent(item) as TextBlock)?.Text;
@@ -155,13 +198,15 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
             
             var postalcode = (ListView.SelectedCells[7].Column.GetCellContent(item) as TextBlock)?.Text;
 
+            
             Name.Text = name;
-            //Birthday.Text = birthday;
+            Birthday.SelectedDate = Convert.ToDateTime(birthday);
             Tel.Text = phone;
             Email.Text = email;
             Street.Text = street;
             Place.Text = place;
             PostalCode.Text = postalcode;
+            
         }
         
         //Make sure that the input is a number
@@ -169,6 +214,21 @@ namespace Hotelmanagement.FrontEnd.Viewmodels
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            UpdateDataGrid();
+            hiddenId.Text = "0";
+            Name.Text = "";
+            Email.Text = "";
+            Tel.Text = "";
+            Street.Text = "";
+            Place.Text = "";
+            PostalCode.Text = "";
+            Birthday.SelectedDate = null;
+            PaymentMethodCombobox.SelectedValue = 0;
+            methodInfoText.Text = "";
         }
     }
 }
