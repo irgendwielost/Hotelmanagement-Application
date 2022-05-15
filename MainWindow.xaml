@@ -227,10 +227,14 @@
                             <DataGridTextColumn IsReadOnly="True" Header="Abfahrt" Binding="{Binding Abfahrt}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Grid.Column="2" Content="Abrechnen"
-                            Click="CreateInvoice"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"/>
+                    <Button Grid.Column="2" Click="CreateInvoice"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                        ToolTip="Rechnung erstellen"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                    <materialDesign:PackIcon
+                            Kind="Receipt"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>

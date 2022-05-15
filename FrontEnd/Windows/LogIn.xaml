@@ -51,7 +51,7 @@
         <Button Grid.Row="3"
                 Click="UserLogIn"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+            ToolTip="Anmelden"
             Content="Anmelden"
             Width="243" />
         

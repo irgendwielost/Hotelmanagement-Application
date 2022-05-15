@@ -5,33 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6afb42e2-55d4-4505-87a8-3dc22eedea43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/Models/PaymentMethods/PaymentMethodsDB.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/hotel.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backup/Hotelmanagement.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UpgradeLog.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hotelmanagement/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/v16/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/hotelmanagement/v17/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Customer/CustomerDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Customer/CustomerDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentMethodsDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentMethodsDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentmethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/CustomerPaymentmethods/CustomerPaymentmethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Rooms/RoomsDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Rooms/RoomsDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/Models/Service/ServiceDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Models/Service/ServiceDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Hotel/RoomData.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/Basedata/Service/ServiceData.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/BookingTab.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Viewmodels/CustomerTab.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Windows/DiscountCheckout.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Windows/TargetAudienceFactors.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Windows/TargetAudienceFactors.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Windows/LogIn.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Windows/LogIn.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hotelmanagement.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Hotelmanagement.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hotelmanagement.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Hotelmanagement.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../hotelmangement\exportToHTML" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,6 +41,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2b6b16776cd54434a04affbc0feca44fece70d311fd4178ceca2a1b4330e4/VirtualizedCellInfoCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/399935fa436fb846ac62efb6d50a8d34b1034875a201574eb60f33ad5c7f4/RuntimeHelpers.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3d7feeea46f0a7edf6cb722578ee59fa71a0641fbdb2b3662221f519f8e9efe5/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/75aee9e2c99fe7abb8abe5d060fdc4b3af699b8c1010bf489c7aabb78f58f0/DataGridColumn.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a1ad32abaee44480b66c2c1fcee9628cca92a4cd272eced5781564201180/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
@@ -118,7 +112,7 @@
       <workItem from="1652529576371" duration="1070000" />
       <workItem from="1652609651206" duration="10521000" />
       <workItem from="1652623821185" duration="87000" />
-      <workItem from="1652630921156" duration="1103000" />
+      <workItem from="1652630921156" duration="3324000" />
     </task>
     <task id="LOCAL-00001" summary="Added the MainWindow Design and some Database basics">
       <created>1650892678105</created>
@@ -148,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652530361009</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Application is ready for the school presentation">
+      <created>1652632320914</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652632320914</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +188,7 @@
     <MESSAGE value="Added the Main-Window design and some database basics" />
     <MESSAGE value="Fixed some error handling bugs and the invoice display" />
     <MESSAGE value="Added a login system and fixed some invoice bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a login system and fixed some invoice bugs" />
+    <MESSAGE value="Application is ready for the school presentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Application is ready for the school presentation" />
   </component>
 </project>
